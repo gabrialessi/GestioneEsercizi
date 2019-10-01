@@ -8,6 +8,7 @@ namespace GestioneEsercizi.DA.Models
     {
         public string Titolo { get; set; }
         public DateTime Data { get; set; }
+        public Anno Anno { get; set; }
         public ICollection<EsercizioProva> EserciziProva { get; set; }
     }
 }

@@ -6,5 +6,7 @@ namespace GestioneEsercizi.DA.Models
 {
     public class EsercizioProva : Esercizio
     {
+        public Esercizio Esercizio { get; set; }
+        public Prova Prova { get; set; }
     }
 }

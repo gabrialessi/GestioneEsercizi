@@ -7,5 +7,6 @@ namespace GestioneEsercizi.DA.Models
     public class Classe : BaseEntity
     {
         public string Nome { get; set; }
+        public Anno Anno { get; set; }
     }
 }

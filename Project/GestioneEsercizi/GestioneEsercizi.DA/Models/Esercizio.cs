@@ -8,5 +8,7 @@ namespace GestioneEsercizi.DA.Models
     {
         public string Titolo { get; set; }
         public string Testo { get; set; }
+        public Modulo Modulo { get; set; }
+        public EsercizioProva EsercizioProva { get; set; }
     }
 }

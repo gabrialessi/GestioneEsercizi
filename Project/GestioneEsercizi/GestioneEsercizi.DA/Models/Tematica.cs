@@ -7,5 +7,6 @@ namespace GestioneEsercizi.DA.Models
     public class Tematica : BaseEntity
     {
         public string Nome { get; set; }
+        public Modulo Modulo { get; set; }
     }
 }
