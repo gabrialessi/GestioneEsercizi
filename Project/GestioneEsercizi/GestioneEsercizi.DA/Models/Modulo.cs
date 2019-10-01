@@ -7,5 +7,6 @@ namespace GestioneEsercizi.DA.Models
     public class Modulo : BaseEntity
     {
         public string Nome { get; set; }
+        public ICollection<Tematica> Tematiche { get; set; }
     }
 }
