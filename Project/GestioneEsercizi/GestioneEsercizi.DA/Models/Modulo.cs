@@ -8,5 +8,6 @@ namespace GestioneEsercizi.DA.Models
     {
         public string Nome { get; set; }
         public ICollection<Tematica> Tematiche { get; set; }
+        public ICollection<Esercizio> Esercizi { get; set; }
     }
 }
