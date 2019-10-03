@@ -4,11 +4,26 @@ using System.Text;
 
 namespace GestioneEsercizi.DA.Models
 {
+    /// <summary>
+    /// Modello di dati dell'esercizio.
+    /// </summary>
     public class Esercizio : BaseEntity
     {
+        /// <summary>
+        /// Titolo dell'esercizio.
+        /// </summary>
         public string Titolo { get; set; }
+        /// <summary>
+        /// Testo dell'esercizio (include l'immagine).
+        /// </summary>
         public string Testo { get; set; }
+        /// <summary>
+        /// Modulo relativo all'esercizio.
+        /// </summary>
         public Modulo Modulo { get; set; }
+        /// <summary>
+        /// Esercizio della prova relativo all'esercizio.
+        /// </summary>
         public EsercizioProva EsercizioProva { get; set; }
     }
 }
