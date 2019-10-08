@@ -81,6 +81,11 @@ namespace GestioneEsercizi.DA.Services
             context.SaveChanges();
         }
 
+        /// <summary>
+        /// Metodo utile per filtrare dei dati.
+        /// </summary>
+        /// <param name="predicate">Espressione filtrante.</param>
+        /// <returns>I dati filtrati.</returns>
         public virtual IQueryable<T> Where(Expression<Func<T, bool>> predicate)
         {
             return context.Set<T>().Where(predicate);
