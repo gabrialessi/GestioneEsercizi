@@ -9,20 +9,20 @@ using System.Text;
 
 namespace GestioneEsercizi.ViewModels
 {
-    public class ModuloListViewModel : BindableBase
+    public class TematicaViewModel : BindableBase
     {
         /// <summary>
-        /// Insieme dinamico dei dati dei moduli.
+        /// Insieme dinamico dei dati delle tematiche.
         /// </summary>
-        public ObservableCollection<Modulo> Moduli { get; set; }
+        public ObservableCollection<Tematica> Tematiche { get; set; }
 
         /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
-        public ModuloListViewModel()
+        public TematicaViewModel()
         {
-            ModuloDbRepository repo = new ModuloDbRepository(new AppDbContext());
-            Moduli = new ObservableCollection<Modulo>(repo.Get());
+            TematicaDbRepository repo = new TematicaDbRepository(new AppDbContext());
+            Tematiche = new ObservableCollection<Tematica>(repo.Get());
         }
     }
 }
