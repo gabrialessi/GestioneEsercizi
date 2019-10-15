@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:GestioneEsercizi"
         xmlns:view="clr-namespace:GestioneEsercizi.Views"
         mc:Ignorable="d"
-        Title="GestioneEsercizi" Height="400" Width="600">
+        Title="GestioneEsercizi" 
+        Height="400" 
+        Width="600">
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -18,7 +20,7 @@
                 </MenuItem>
                 <MenuItem Header="_Info">
                     <MenuItem Header="_Guida"/>
-                    <MenuItem Header="_About"/>
+                    <MenuItem x:Name="miAbout" Header="_About" Click="miAbout_Click"/>
                 </MenuItem>
             </Menu>
             <StackPanel></StackPanel>

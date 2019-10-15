@@ -29,5 +29,10 @@ namespace GestioneEsercizi
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+        private void miAbout_Click(object sender, RoutedEventArgs e)
+        {
+            new AboutWindow().Show();
+        }
     }
 }
