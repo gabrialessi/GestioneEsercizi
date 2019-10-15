@@ -15,4 +15,8 @@
     <ProjectReference Include="..\GestioneEsercizi.DA\GestioneEsercizi.DA.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>
