@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GestioneEsercizi.DA\GestioneEsercizi.DA.csproj" />
   </ItemGroup>
 
