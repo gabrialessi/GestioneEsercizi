@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestioneEsercizi.Views"
-             xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
-             mc:Ignorable="d" 
+             xmlns:view="clr-namespace:GestioneEsercizi.Views"
+             mc:Ignorable="d"
              d:DesignHeight="400" d:DesignWidth="600">
     <Grid>
-            
+        <view:BenvenutoView></view:BenvenutoView>
     </Grid>
 </UserControl>
