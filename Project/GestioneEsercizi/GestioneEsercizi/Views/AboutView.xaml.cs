@@ -22,5 +22,10 @@ namespace GestioneEsercizi.Views
         {
             InitializeComponent();
         }
+
+        private void hlGitHub_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/gabrialessi/GestioneEsercizi");
+        }
     }
 }

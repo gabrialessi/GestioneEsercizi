@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestioneEsercizi.Views"
              xmlns:view="clr-namespace:GestioneEsercizi.Views"
+             xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.DataContext>
+        <viewmodel:MainViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <view:BenvenutoView></view:BenvenutoView>
     </Grid>
