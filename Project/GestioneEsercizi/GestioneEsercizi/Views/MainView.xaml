@@ -11,6 +11,11 @@
     <UserControl.DataContext>
         <viewmodel:MainViewModel/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:AboutViewModel}">
+            <local:AboutView/>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <view:BenvenutoView></view:BenvenutoView>
     </Grid>
