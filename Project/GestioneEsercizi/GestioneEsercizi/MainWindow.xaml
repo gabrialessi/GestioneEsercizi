@@ -5,10 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestioneEsercizi"
         xmlns:view="clr-namespace:GestioneEsercizi.Views"
+        xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
         mc:Ignorable="d"
-        Title="GestioneEsercizi" 
-        Height="400" 
-        Width="600">
+        Title="Gestione Esercizi" Height="400" Width="600">
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:AboutViewModel}">
+            <view:AboutView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:BenvenutoViewModel}">
+            <view:BenvenutoView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -20,11 +30,11 @@
                 </MenuItem>
                 <MenuItem Header="_Info">
                     <MenuItem Header="_Guida"/>
-                    <MenuItem x:Name="miAbout" Header="_About" Click="miAbout_Click"/>
+                    <MenuItem Header="_About" Command="{Binding Path=AboutCommand}"/>
                 </MenuItem>
             </Menu>
             <StackPanel></StackPanel>
         </DockPanel>
-        <view:MainView></view:MainView>
+        <ContentControl Content="{Binding Path=CurrentViewModel}"/>
     </Grid>
 </Window>
