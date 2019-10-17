@@ -26,8 +26,18 @@ namespace GestioneEsercizi
 
         private void bChiudi_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
+        private void hlGitHub_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://github.com/gabrialessi/GestioneEsercizi");
+            }
+            catch (System.ComponentModel.Win32Exception)
+            {
+            }
+        }
     }
 }

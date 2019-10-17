@@ -32,18 +32,17 @@
             VerticalAlignment="Top"
             Margin="10">
         </Image>
-        <TextBlock
-            Grid.Column="1" 
-            Grid.Row="1" 
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center">
-            Gestione Esercizi
-            <LineBreak/>
+        <Label
+            Grid.Column="1"
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
             <Hyperlink 
-                NavigateUri="https://github.com/gabrialessi/GestioneEsercizi">
+                x:Name="hlGitHub" 
+                Click="hlGitHub_Click">
                 GitHub
             </Hyperlink>
-        </TextBlock>
+        </Label>
         <Button 
             Grid.Column="2"
             Grid.Row="2"
