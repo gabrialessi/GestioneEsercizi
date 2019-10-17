@@ -7,9 +7,9 @@ namespace GestioneEsercizi.ViewModels
 {
     public class MainViewModel : BindableBase
     {
-        private ClasseViewModel classevm;
+        private AboutViewModel aboutvm;
 
-        public IDelegateCommand ClasseListCommand { get; set; }
+        public IDelegateCommand AboutCommand { get; set; }
 
         private BindableBase currentViewModel;
 
@@ -22,21 +22,23 @@ namespace GestioneEsercizi.ViewModels
         public MainViewModel()
         {
             RegisterCommands();
+            aboutvm = new AboutViewModel();
+            CurrentViewModel = null;
         }
 
         private void RegisterCommands()
         {
-            ClasseListCommand = new DelegateCommand(OnClasseList, CanClasseList);
+            AboutCommand = new DelegateCommand(OnAbout, CanAbout);
         }
 
-        private void OnClasseList(object obj)
-        {
-            CurrentViewModel = classevm;
-        }
-
-        private bool CanClasseList(object arg)
+        private bool CanAbout(object arg)
         {
             return true;
+        }
+
+        private void OnAbout(object obj)
+        {
+            CurrentViewModel = aboutvm;
         }
     }
 }
