@@ -9,9 +9,11 @@ namespace GestioneEsercizi.ViewModels
     {
         private AboutViewModel aboutvm;
         private BenvenutoViewModel benvenutovm;
+        private ImpostazioniBaseViewModel impostazionibasevm;
 
         public IDelegateCommand AboutCommand { get; set; }
         public IDelegateCommand BenvenutoCommand { get; set; }
+        public IDelegateCommand ImpostazioniBaseCommand { get; set; }
 
         private BindableBase currentViewModel;
 
@@ -26,6 +28,7 @@ namespace GestioneEsercizi.ViewModels
             RegisterCommands();
             aboutvm = new AboutViewModel();
             benvenutovm = new BenvenutoViewModel();
+            impostazionibasevm = new ImpostazioniBaseViewModel();
             CurrentViewModel = benvenutovm;
         }
 
@@ -33,6 +36,7 @@ namespace GestioneEsercizi.ViewModels
         {
             AboutCommand = new DelegateCommand(OnAbout, CanAbout);
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
+            ImpostazioniBaseCommand = new DelegateCommand(OnImpostazioniBase, CanImpostazioniBase);
         }
 
         private void OnAbout(object obj)
@@ -51,6 +55,16 @@ namespace GestioneEsercizi.ViewModels
         }
 
         private bool CanBenvenuto(object arg)
+        {
+            return true;
+        }
+
+        private void OnImpostazioniBase(object obj)
+        {
+            CurrentViewModel = impostazionibasevm;
+        }
+
+        private bool CanImpostazioniBase(object arg)
         {
             return true;
         }
