@@ -29,11 +29,7 @@ namespace GestioneEsercizi.Views
             {
                 System.Diagnostics.Process.Start("https://github.com/gabrialessi/GestioneEsercizi");
             }
-            catch (System.ComponentModel.Win32Exception)
-            {
-                throw;
-            }
-
+            catch (System.ComponentModel.Win32Exception) { }
         }
     }
 }
