@@ -29,14 +29,16 @@
             VerticalAlignment="Center" 
             HorizontalAlignment="Center"
             Content="Nuovo Esercizio"
-            Padding="10" >
+            Padding="10"
+            Command="{Binding Path=EsercizioCommand}">
         </Button>
         <Button 
             Grid.Column="2"
             VerticalAlignment="Center" 
             HorizontalAlignment="Center"
             Content="Creazione Prova"
-            Padding="10" >
+            Padding="10"
+            Command="{Binding Path=ProvaCommand}">
         </Button>
     </Grid>
 </UserControl>
