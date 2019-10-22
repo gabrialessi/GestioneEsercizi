@@ -22,8 +22,8 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public Modulo Modulo { get; set; }
         /// <summary>
-        /// Esercizio della prova relativo all'esercizio.
+        /// Esercizi della prova relativi all'esercizio.
         /// </summary>
-        public EsercizioProva EsercizioProva { get; set; }
+        public ICollection<EsercizioProva> EserciziProva { get; set; }
     }
 }
