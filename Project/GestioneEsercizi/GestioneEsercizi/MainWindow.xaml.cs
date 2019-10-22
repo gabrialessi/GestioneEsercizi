@@ -24,10 +24,5 @@ namespace GestioneEsercizi
         {
             InitializeComponent();
         }
-
-        private void miEsci_Click(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Application.Current.Shutdown();
-        }
     }
 }
