@@ -5,36 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GestioneEsercizi"
         xmlns:view="clr-namespace:GestioneEsercizi.Views"
-        xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
         mc:Ignorable="d"
         Title="Gestione Esercizi" Height="400" Width="600">
-    <Window.DataContext>
-        <viewmodel:MainViewModel/>
-    </Window.DataContext>
-    <Window.Resources>
-        <DataTemplate DataType="{x:Type viewmodel:AboutViewModel}">
-            <view:AboutView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:BenvenutoViewModel}">
-            <view:BenvenutoView/>
-        </DataTemplate>
-    </Window.Resources>
     <Grid>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_Esercizi"/>
-                    <MenuItem Header="_Prove"/>
-                    <MenuItem Header="_Opzioni"/>
-                    <MenuItem x:Name="miEsci" Header="_Esci" Click="miEsci_Click"/>
-                </MenuItem>
-                <MenuItem Header="_Info">
-                    <MenuItem Header="_Guida"/>
-                    <MenuItem Header="_About" Command="{Binding Path=AboutCommand}"/>
-                </MenuItem>
-            </Menu>
-            <StackPanel></StackPanel>
-        </DockPanel>
-        <ContentControl Content="{Binding Path=CurrentViewModel}"/>
+        <view:MainView/>
     </Grid>
 </Window>
