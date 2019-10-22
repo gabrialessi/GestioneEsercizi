@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GestioneEsercizi.Views"
              xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="400" d:DesignWidth="600">
     <UserControl.DataContext>
         <viewmodel:MainViewModel/>
     </UserControl.DataContext>
