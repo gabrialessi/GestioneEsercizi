@@ -65,14 +65,6 @@ namespace GestioneEsercizi.DA
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Esercizio>()
-                .HasOne(p => p.EsercizioProva)
-                .WithOne(i => i.Esercizio)
-                .HasForeignKey<EsercizioProva>(b => b.Esercizio);
-        }
-
         /// <summary>
         /// Configurazione del percorso di memorizzazione del database SQLite.
         /// </summary>
@@ -81,7 +73,7 @@ namespace GestioneEsercizi.DA
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=D:\\GestioneEsercizi\\GestioneEsercizi.db");
+                optionsBuilder.UseSqlite("Data Source=D:\\Desktop\\Scuola\\4SAMT\\Progetti\\GestioneEsercizi\\Project\\Database\\GestioneEsercizi.db");
             }
         }
     }
