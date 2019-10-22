@@ -11,6 +11,14 @@
     <Window.DataContext>
         <viewmodel:MainViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:AboutViewModel}">
+            <view:AboutView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:BenvenutoViewModel}">
+            <view:BenvenutoView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
