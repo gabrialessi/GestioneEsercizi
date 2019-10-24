@@ -32,6 +32,7 @@ namespace GestioneEsercizi.ViewModels
             AboutCommand = new DelegateCommand(OnAbout, CanAbout);
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
             CurrentViewModel = benvenutoViewModel;
+            RegisterMessages();
         }
 
         private void RegisterMessages()
