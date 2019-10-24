@@ -15,13 +15,6 @@ namespace GestioneEsercizi.ViewModels
         public IDelegateCommand EsercizioCommand { get; set; }
         public IDelegateCommand ProvaCommand { get; set; }
 
-        private BindableBase selectedViewModel;
-        public BindableBase SelectedViewModel
-        {
-            get { return selectedViewModel; }
-            set { SetProperty(ref selectedViewModel, value); }
-        }
-
         /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
@@ -40,16 +33,11 @@ namespace GestioneEsercizi.ViewModels
             ProvaCommand = new DelegateCommand(OnProva, CanProva);
         }
 
-        private void EditCurrentViewModel(object obj)
-        {
-            Messenger.Default.Send<BindableBase>(selectedViewModel);
-        }
-
-        private void OnImpostazioniBase(object obj) { SelectedViewModel = impostazionibaseViewModel; }
+        private void OnImpostazioniBase(object obj) { Messenger.Default.Send<BindableBase>(impostazionibaseViewModel); }
         private bool CanImpostazioniBase(object arg) { return true; }
-        private void OnEsercizio(object obj) { SelectedViewModel = esercizioViewModel; }
+        private void OnEsercizio(object obj) { Messenger.Default.Send<BindableBase>(esercizioViewModel); }
         private bool CanEsercizio(object arg) { return true; }
-        private void OnProva(object obj) { SelectedViewModel = provaViewModel; }
+        private void OnProva(object obj) { Messenger.Default.Send<BindableBase>(provaViewModel); }
         private bool CanProva(object arg) { return true; }
     }
 }
