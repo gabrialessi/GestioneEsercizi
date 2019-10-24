@@ -17,6 +17,9 @@
         <DataTemplate DataType="{x:Type viewmodel:AboutViewModel}">
             <local:AboutView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:EsercizioListViewModel}">
+            <local:EsercizioListView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodel:ImpostazioniBaseViewModel}">
             <local:ImpostazioniBaseView/>
         </DataTemplate>
@@ -31,7 +34,7 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Esercizi"/>
+                    <MenuItem Header="_Esercizi" Command="{Binding Path=EsercizioListCommand}"/>
                     <MenuItem Header="_Prove"/>
                     <MenuItem Header="_Opzioni"/>
                     <MenuItem x:Name="miEsci" Header="_Esci" Click="miEsci_Click"/>
