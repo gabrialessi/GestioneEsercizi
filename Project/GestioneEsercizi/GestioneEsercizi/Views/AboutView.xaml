@@ -10,11 +10,6 @@
     <UserControl.DataContext>
         <viewmodel:AboutViewModel/>
     </UserControl.DataContext>
-    <UserControl.Resources>
-        <DataTemplate DataType="{x:Type viewmodel:BenvenutoViewModel}">
-            <local:BenvenutoView/>
-        </DataTemplate>
-    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

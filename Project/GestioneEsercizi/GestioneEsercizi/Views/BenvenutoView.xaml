@@ -10,17 +10,6 @@
     <UserControl.DataContext>
         <viewmodel:BenvenutoViewModel/>
     </UserControl.DataContext>
-    <UserControl.Resources>
-        <DataTemplate DataType="{x:Type viewmodel:ImpostazioniBaseViewModel}">
-            <local:ImpostazioniBaseView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:EsercizioViewModel}">
-            <local:EsercizioView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:ProvaViewModel}">
-            <local:ProvaView/>
-        </DataTemplate>
-    </UserControl.Resources>
     <Grid Margin="50">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
