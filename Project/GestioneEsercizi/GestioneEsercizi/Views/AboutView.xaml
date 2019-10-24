@@ -4,8 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestioneEsercizi.Views"
+             xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.DataContext>
+        <viewmodel:AboutViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:BenvenutoViewModel}">
+            <local:BenvenutoView/>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
