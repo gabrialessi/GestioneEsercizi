@@ -7,8 +7,8 @@ namespace GestioneEsercizi.ViewModels
 {
     public class MainViewModel : BindableBase
     {
-        private BenvenutoViewModel benvenutovm;
-        private AboutViewModel aboutvm;
+        private BenvenutoViewModel benvenutoViewModel;
+        private AboutViewModel aboutViewModel;
 
         public IDelegateCommand BenvenutoCommand { get; set; }
         public IDelegateCommand AboutCommand { get; set; }
@@ -23,20 +23,26 @@ namespace GestioneEsercizi.ViewModels
         public MainViewModel()
         {
             RegisterCommands();
-            benvenutovm = new BenvenutoViewModel();
-            aboutvm = new AboutViewModel();
-            CurrentViewModel = benvenutovm;
         }
 
         private void RegisterCommands()
         {
+            benvenutoViewModel = new BenvenutoViewModel();
+            aboutViewModel = new AboutViewModel();
             AboutCommand = new DelegateCommand(OnAbout, CanAbout);
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
+            CurrentViewModel = benvenutoViewModel;
         }
 
-        private void OnBenvenuto(object obj) { CurrentViewModel = benvenutovm; }
+        private void RegisterMessages()
+        {
+            Messenger.Default.Register<BindableBase>(this, OnCurrentViewModelReceived);
+        }
+
+        private void OnBenvenuto(object obj) { CurrentViewModel = benvenutoViewModel; }
         private bool CanBenvenuto(object arg) { return true; }
-        private void OnAbout(object obj) { CurrentViewModel = aboutvm; }
+        private void OnAbout(object obj) { CurrentViewModel = aboutViewModel; }
         private bool CanAbout(object arg) { return true; }
+        public void OnCurrentViewModelReceived(BindableBase viewmodel) { CurrentViewModel = viewmodel; }
     }
 }
