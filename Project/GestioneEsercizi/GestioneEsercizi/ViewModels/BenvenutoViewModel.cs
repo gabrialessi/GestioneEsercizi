@@ -5,12 +5,14 @@ using System.Text;
 
 namespace GestioneEsercizi.ViewModels
 {
+    /// <summary>
+    /// ViewModel della schermata di benvenuto.
+    /// </summary>
     public class BenvenutoViewModel : BindableBase
     {
         private ImpostazioniBaseViewModel impostazionibaseViewModel;
         private EsercizioViewModel esercizioViewModel;
         private ProvaViewModel provaViewModel;
-
         public IDelegateCommand ImpostazioniBaseCommand { get; set; }
         public IDelegateCommand EsercizioCommand { get; set; }
         public IDelegateCommand ProvaCommand { get; set; }
@@ -18,11 +20,11 @@ namespace GestioneEsercizi.ViewModels
         /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
-        public BenvenutoViewModel()
-        {
-            RegisterCommands();
-        }
+        public BenvenutoViewModel() { RegisterCommands(); }
 
+        /// <summary>
+        /// Impostazione dei ViewModels e Commands relativi.
+        /// </summary>
         private void RegisterCommands()
         {
             impostazionibaseViewModel = new ImpostazioniBaseViewModel();
