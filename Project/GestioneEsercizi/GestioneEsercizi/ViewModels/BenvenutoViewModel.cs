@@ -7,36 +7,49 @@ namespace GestioneEsercizi.ViewModels
 {
     public class BenvenutoViewModel : BindableBase
     {
-        private ImpostazioniBaseViewModel impostazionibasevm;
-        private EsercizioViewModel eserciziovm;
-        private ProvaViewModel provavm;
+        private ImpostazioniBaseViewModel impostazionibaseViewModel;
+        private EsercizioViewModel esercizioViewModel;
+        private ProvaViewModel provaViewModel;
 
         public IDelegateCommand ImpostazioniBaseCommand { get; set; }
         public IDelegateCommand EsercizioCommand { get; set; }
         public IDelegateCommand ProvaCommand { get; set; }
+
+        private BindableBase selectedViewModel;
+        public BindableBase SelectedViewModel
+        {
+            get { return selectedViewModel; }
+            set { SetProperty(ref selectedViewModel, value); }
+        }
 
         /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
         public BenvenutoViewModel()
         {
-            impostazionibasevm = new ImpostazioniBaseViewModel();
-            eserciziovm = new EsercizioViewModel();
-            provavm = new ProvaViewModel();
+            RegisterCommands();
         }
 
         private void RegisterCommands()
         {
+            impostazionibaseViewModel = new ImpostazioniBaseViewModel();
+            esercizioViewModel = new EsercizioViewModel();
+            provaViewModel = new ProvaViewModel();
             ImpostazioniBaseCommand = new DelegateCommand(OnImpostazioniBase, CanImpostazioniBase);
             EsercizioCommand = new DelegateCommand(OnEsercizio, CanEsercizio);
             ProvaCommand = new DelegateCommand(OnProva, CanProva);
         }
 
-        private void OnImpostazioniBase(object obj) { CurrentViewModel = impostazionibasevm; }
+        private void EditCurrentViewModel(object obj)
+        {
+            Messenger.Default.Send<BindableBase>(selectedViewModel);
+        }
+
+        private void OnImpostazioniBase(object obj) { SelectedViewModel = impostazionibaseViewModel; }
         private bool CanImpostazioniBase(object arg) { return true; }
-        private void OnEsercizio(object obj) { CurrentViewModel = eserciziovm; }
+        private void OnEsercizio(object obj) { SelectedViewModel = esercizioViewModel; }
         private bool CanEsercizio(object arg) { return true; }
-        private void OnProva(object obj) { CurrentViewModel = provavm; }
+        private void OnProva(object obj) { SelectedViewModel = provaViewModel; }
         private bool CanProva(object arg) { return true; }
     }
 }
