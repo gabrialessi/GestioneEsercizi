@@ -11,13 +11,6 @@ namespace GestioneEsercizi.ViewModels
 
         public IDelegateCommand BenvenutoCommand { get; set; }
 
-        private BindableBase selectedViewModel;
-        public BindableBase SelectedViewModel
-        {
-            get { return selectedViewModel; }
-            set { SetProperty(ref selectedViewModel, value); }
-        }
-
         /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
@@ -32,12 +25,7 @@ namespace GestioneEsercizi.ViewModels
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
         }
 
-        private void EditCurrentViewModel(object obj)
-        {
-            Messenger.Default.Send<BindableBase>(selectedViewModel);
-        }
-
-        private void OnBenvenuto(object obj) { SelectedViewModel = benvenutoViewModel; }
+        private void OnBenvenuto(object obj) { Messenger.Default.Send<BindableBase>(benvenutoViewModel); }
         private bool CanBenvenuto(object arg) { return true; }
     }
 }
