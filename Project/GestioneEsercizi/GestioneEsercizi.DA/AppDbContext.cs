@@ -73,7 +73,11 @@ namespace GestioneEsercizi.DA
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source=D:\\Desktop\\Scuola\\4SAMT\\Progetti\\GestioneEsercizi\\Project\\Database\\GestioneEsercizi.db");
+                optionsBuilder.UseSqlite("Data Source="
+                    + System.AppDomain.CurrentDomain.BaseDirectory
+                    + "GestioneEserciziDB.sqlite");
+                //optionsBuilder.UseSqlite("Data Source=D:\\Desktop\\Scuola\\4SAMT\\Progetti\\GestioneEsercizi"
+                //    + "\\Project\\GestioneEsercizi\\GestioneEsercizi.DA\\Database\\GestioneEsercizi.db");
             }
         }
     }
