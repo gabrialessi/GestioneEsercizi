@@ -15,9 +15,11 @@ namespace GestioneEsercizi.ViewModels
         private BenvenutoViewModel benvenutoViewModel;
         private AboutViewModel aboutViewModel;
         private EsercizioListViewModel esercizioListViewModel;
+        private ProvaListViewModel provaListViewModel;
         public IDelegateCommand BenvenutoCommand { get; set; }
         public IDelegateCommand AboutCommand { get; set; }
         public IDelegateCommand EsercizioListCommand { get; set; }
+        public IDelegateCommand ProvaListCommand { get; set; }
 
         private BindableBase currentViewModel;
         /// <summary>
@@ -39,9 +41,11 @@ namespace GestioneEsercizi.ViewModels
             benvenutoViewModel = new BenvenutoViewModel();
             aboutViewModel = new AboutViewModel();
             esercizioListViewModel = new EsercizioListViewModel();
+            provaListViewModel = new ProvaListViewModel();
             AboutCommand = new DelegateCommand(OnAbout, CanAbout);
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
             EsercizioListCommand = new DelegateCommand(OnEsercizioList, CanEsercizioList);
+            ProvaListCommand = new DelegateCommand(OnProvaList, CanProvaList);
             CurrentViewModel = benvenutoViewModel;
             RegisterMessages();
         }
@@ -69,5 +73,7 @@ namespace GestioneEsercizi.ViewModels
         private bool CanAbout(object arg) { return true; }
         private void OnEsercizioList(object obj) { CurrentViewModel = esercizioListViewModel; }
         private bool CanEsercizioList(object arg) { return true; }
+        private void OnProvaList(object obj) { CurrentViewModel = provaListViewModel; }
+        private bool CanProvaList(object arg) { return true; }
     }
 }
