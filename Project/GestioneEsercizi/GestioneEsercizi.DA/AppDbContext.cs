@@ -33,7 +33,7 @@ namespace GestioneEsercizi.DA
         /// <summary>
         /// Raccolta delle entità degli anni.
         /// </summary>
-        public DbSet<Anno> Anno { get; set; }
+        public DbSet<Anno> Anni { get; set; }
 
         /// <summary>
         /// Raccolta delle entità degli esercizi.
@@ -73,11 +73,11 @@ namespace GestioneEsercizi.DA
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source="
+                /*optionsBuilder.UseSqlite("Data Source="
                     + System.AppDomain.CurrentDomain.BaseDirectory
-                    + "GestioneEserciziDB.sqlite");
-                //optionsBuilder.UseSqlite("Data Source=D:\\Desktop\\Scuola\\4SAMT\\Progetti\\GestioneEsercizi"
-                //    + "\\Project\\GestioneEsercizi\\GestioneEsercizi.DA\\Database\\GestioneEsercizi.db");
+                    + "GestioneEserciziDB.sqlite");*/
+                optionsBuilder.UseSqlite("Data Source=D:\\Desktop\\Scuola\\4SAMT\\Progetti\\GestioneEsercizi"
+                    + "\\Project\\GestioneEsercizi\\GestioneEsercizi.DA\\db\\GestioneEsercizi.sqlite");
             }
         }
     }

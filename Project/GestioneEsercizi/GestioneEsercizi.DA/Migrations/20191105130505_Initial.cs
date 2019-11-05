@@ -8,7 +8,7 @@ namespace GestioneEsercizi.DA.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Anno",
+                name: "Anni",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -17,7 +17,7 @@ namespace GestioneEsercizi.DA.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Anno", x => x.Id);
+                    table.PrimaryKey("PK_Anni", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -33,9 +33,9 @@ namespace GestioneEsercizi.DA.Migrations
                 {
                     table.PrimaryKey("PK_Classi", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Classi_Anno_AnnoId",
+                        name: "FK_Classi_Anni_AnnoId",
                         column: x => x.AnnoId,
-                        principalTable: "Anno",
+                        principalTable: "Anni",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -53,9 +53,9 @@ namespace GestioneEsercizi.DA.Migrations
                 {
                     table.PrimaryKey("PK_Moduli", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Moduli_Anno_AnnoId",
+                        name: "FK_Moduli_Anni_AnnoId",
                         column: x => x.AnnoId,
-                        principalTable: "Anno",
+                        principalTable: "Anni",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -74,9 +74,9 @@ namespace GestioneEsercizi.DA.Migrations
                 {
                     table.PrimaryKey("PK_Prove", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Prove_Anno_AnnoId",
+                        name: "FK_Prove_Anni_AnnoId",
                         column: x => x.AnnoId,
-                        principalTable: "Anno",
+                        principalTable: "Anni",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -191,7 +191,7 @@ namespace GestioneEsercizi.DA.Migrations
                 name: "Moduli");
 
             migrationBuilder.DropTable(
-                name: "Anno");
+                name: "Anni");
         }
     }
 }

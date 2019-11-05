@@ -27,7 +27,7 @@ namespace GestioneEsercizi.DA.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Anno");
+                    b.ToTable("Anni");
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Classe", b =>

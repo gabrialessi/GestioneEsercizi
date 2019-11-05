@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestioneEsercizi.DA.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191022124409_Initial")]
+    [Migration("20191105130505_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,7 +29,7 @@ namespace GestioneEsercizi.DA.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Anno");
+                    b.ToTable("Anni");
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Classe", b =>
