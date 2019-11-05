@@ -21,9 +21,9 @@ namespace GestioneEsercizi.Views
         public EsercizioListView()
         {
             InitializeComponent();
-            this.dgEsercizi.Columns[1].Visibility = Visibility.Collapsed;
-            this.dgEsercizi.Columns[3].Visibility = Visibility.Collapsed;
-            this.dgEsercizi.Columns[4].Visibility = Visibility.Collapsed;
+            //dgEsercizi.Columns[1].Visibility = Visibility.Collapsed;
+            //dgEsercizi.Columns[3].Visibility = Visibility.Collapsed;
+            //dgEsercizi.Columns[4].Visibility = Visibility.Collapsed;
         }
     }
 }
