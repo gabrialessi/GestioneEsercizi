@@ -17,5 +17,13 @@ namespace GestioneEsercizi.DA.Models
         /// Modulo relativo alla tematica.
         /// </summary>
         public Modulo Modulo { get; set; }
+        /// <summary>
+        /// Stampa dell'oggetto (nome).
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }
