@@ -25,7 +25,7 @@ namespace GestioneEsercizi.DA.Services
         /// <returns>Le entità ordinate per nome.</returns>
         public override IQueryable<Tematica> Get()
         {
-            return base.Get().OrderBy(s => s.Nome);
+            return base.Get().OrderBy(s => s.Modulo);
         }
     }
 }
