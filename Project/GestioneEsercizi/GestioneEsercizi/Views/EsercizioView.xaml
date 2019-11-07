@@ -4,9 +4,67 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestioneEsercizi.Views"
+             xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <UserControl.DataContext>
+        <viewmodel:EsercizioViewModel />
+    </UserControl.DataContext>
+    <Grid Margin="50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- Titolo esercizio -->
+        <TextBox x:Name="tbTitolo" Grid.Column="0" Grid.Row="0" Margin="5" />
+        <TextBlock IsHitTestVisible="False" Text="Titolo esercizio..." 
+                   VerticalAlignment="Center" Foreground="DarkGray" Margin="10 0 0 0">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=tbTitolo}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <!-- Menu - Modulo, Tematica, Classe -->
+        <ComboBox Grid.Column="1" Grid.Row="0" SelectedIndex="0" 
+                  ItemsSource="{Binding Path=Moduli}" Margin="5" />
+        <ComboBox Grid.Column="2" Grid.Row="0" SelectedIndex="0" 
+                  ItemsSource="{Binding Path=Tematiche}" Margin="5" />
+        <ComboBox Grid.Column="3" Grid.Row="0" SelectedIndex="0" 
+                  ItemsSource="{Binding Path=Classi}" Margin="5" />
+        <!-- Testo esercizio -->
+        <TextBox x:Name="tbTesto" Grid.ColumnSpan="2" Grid.Row="1" Margin="5" />
+        <TextBlock Grid.ColumnSpan="2" Grid.Row="1"
+                   IsHitTestVisible="False" Text="Testo esercizio..." 
+                   Margin="10 10 0 0" Foreground="DarkGray">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=tbTesto}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <!-- Immagine -->
+        <Grid Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" 
+              Margin="50" AllowDrop="True" Drop="Grid_Drop">
+            <Label x:Name="lImmagine" Content="Immagine" />
+            <Button x:Name="bSfoglia" VerticalAlignment="Center" 
+                HorizontalAlignment="Center" Content="Sfoglia..." Click="bSfoglia_Click" />
+        </Grid>
     </Grid>
 </UserControl>
