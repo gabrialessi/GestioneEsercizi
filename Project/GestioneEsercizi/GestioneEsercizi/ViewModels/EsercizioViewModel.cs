@@ -12,10 +12,30 @@ namespace GestioneEsercizi.ViewModels
     public class EsercizioViewModel : BindableBase
     {
         /// <summary>
+        /// Insieme dinamico dei dati delle classi.
+        /// </summary>
+        public ObservableCollection<Classe> Classi { get; set; }
+        /// <summary>
+        /// Insieme dinamico dei dati dei moduli.
+        /// </summary>
+        public ObservableCollection<Modulo> Moduli { get; set; }
+        /// <summary>
+        /// Insieme dinamico dei dati delle tematiche.
+        /// </summary>
+        public ObservableCollection<Tematica> Tematiche { get; set; }
+
+        /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
         public EsercizioViewModel()
         {
+            AppDbContext ctx = new AppDbContext();
+            ClasseDbRepository repoClasse = new ClasseDbRepository(ctx);
+            ModuloDbRepository repoModulo = new ModuloDbRepository(ctx);
+            TematicaDbRepository repoTematica = new TematicaDbRepository(ctx);
+            Classi = new ObservableCollection<Classe>(repoClasse.Get());
+            Moduli = new ObservableCollection<Modulo>(repoModulo.Get());
+            Tematiche = new ObservableCollection<Tematica>(repoTematica.Get());
         }
     }
 }
