@@ -31,11 +31,11 @@ namespace GestioneEsercizi.ViewModels
         {
             AppDbContext ctx = new AppDbContext();
             ClasseDbRepository repoClasse = new ClasseDbRepository(ctx);
-            ModuloDbRepository repoModulo = new ModuloDbRepository(ctx);
-            TematicaDbRepository repoTematica = new TematicaDbRepository(ctx);
+            //ModuloDbRepository repoModulo = new ModuloDbRepository(ctx);
+            //TematicaDbRepository repoTematica = new TematicaDbRepository(ctx);
             Classi = new ObservableCollection<Classe>(repoClasse.Get());
-            Moduli = new ObservableCollection<Modulo>(repoModulo.Get());
-            Tematiche = new ObservableCollection<Tematica>(repoTematica.Get());
+            //Moduli = new ObservableCollection<Modulo>(repoModulo.Get());
+            //Tematiche = new ObservableCollection<Tematica>(repoTematica.Get());
         }
     }
 }

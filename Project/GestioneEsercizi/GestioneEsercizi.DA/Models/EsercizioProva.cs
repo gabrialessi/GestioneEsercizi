@@ -23,7 +23,7 @@ namespace GestioneEsercizi.DA.Models
         /// <returns></returns>
         public override string ToString()
         {
-            return Esercizio;
+            return Esercizio.Titolo;
         }
     }
 }

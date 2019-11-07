@@ -21,6 +21,7 @@ namespace GestioneEsercizi.Views
         public ImpostazioniBaseView()
         {
             InitializeComponent();
+            //dgClassi.Columns[0].Visibility = Visibility.Collapsed;
         }
     }
 }
