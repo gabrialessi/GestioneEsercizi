@@ -25,7 +25,10 @@ namespace GestioneEsercizi.DA.Models
         /// Insieme degli esercizi del modulo.
         /// </summary>
         public ICollection<Esercizio> Esercizi { get; set; }
-
+        /// <summary>
+        /// Stampa dell'oggetto (nome).
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return Nome;

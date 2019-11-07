@@ -25,5 +25,13 @@ namespace GestioneEsercizi.DA.Models
         /// Esercizi della prova relativi all'esercizio.
         /// </summary>
         public ICollection<EsercizioProva> EserciziProva { get; set; }
+        /// <summary>
+        /// Stampa dell'oggetto (titolo).
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Titolo;
+        }
     }
 }

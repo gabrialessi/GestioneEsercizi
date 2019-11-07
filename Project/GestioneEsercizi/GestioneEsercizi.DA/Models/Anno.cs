@@ -25,7 +25,10 @@ namespace GestioneEsercizi.DA.Models
         /// Insieme delle prove dell'anno.
         /// </summary>
         public ICollection<Prova> Prove { get; set; }
-
+        /// <summary>
+        /// Stampa dell'oggetto (annata).
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return Annata;
