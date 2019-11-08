@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace GestioneEsercizi.DA.Models
 {
@@ -26,12 +24,9 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public ICollection<Prova> Prove { get; set; }
         /// <summary>
-        /// Stampa dell'oggetto (annata).
+        /// Stampa dell'oggetto.
         /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Annata;
-        }
+        /// <returns>L'annata dell'oggetto.</returns>
+        public override string ToString() => Annata;
     }
 }

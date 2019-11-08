@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GestioneEsercizi.DA.Models
+﻿namespace GestioneEsercizi.DA.Models
 {
     /// <summary>
     /// Modello di dati dell'esercizio della prova.
@@ -18,12 +14,9 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public Prova Prova { get; set; }
         /// <summary>
-        /// Stampa dell'oggetto (titolo).
+        /// Stampa dell'oggetto.
         /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Esercizio.Titolo;
-        }
+        /// <returns>Il titolo dell'esercizio.</returns>
+        public override string ToString() => Titolo;
     }
 }

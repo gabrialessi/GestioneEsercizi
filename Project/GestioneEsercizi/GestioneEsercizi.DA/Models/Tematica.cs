@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GestioneEsercizi.DA.Models
+﻿namespace GestioneEsercizi.DA.Models
 {
     /// <summary>
     /// Modello di dati della tematica.
@@ -18,12 +14,9 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public Modulo Modulo { get; set; }
         /// <summary>
-        /// Stampa dell'oggetto (nome).
+        /// Stampa dell'oggetto.
         /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Nome;
-        }
+        /// <returns>Il nome della tematica.</returns>
+        public override string ToString() => Nome;
     }
 }
