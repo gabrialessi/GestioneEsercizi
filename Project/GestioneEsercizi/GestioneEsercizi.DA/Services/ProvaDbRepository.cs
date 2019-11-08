@@ -1,8 +1,5 @@
 ﻿using GestioneEsercizi.DA.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace GestioneEsercizi.DA.Services
 {
@@ -15,17 +12,11 @@ namespace GestioneEsercizi.DA.Services
         /// Metodo costruttore, si definisce il contesto di dati.
         /// </summary>
         /// <param name="ctx">Contesto di dati del database.</param>
-        public ProvaDbRepository(AppDbContext ctx) : base(ctx)
-        {
-        }
-
+        public ProvaDbRepository(AppDbContext ctx) : base(ctx) { }
         /// <summary>
         /// Ritorna tutte le entità ordinate per data.
         /// </summary>
         /// <returns>Le entità ordinate per data.</returns>
-        public override IQueryable<Prova> Get()
-        {
-            return base.Get().OrderBy(s => s.Data);
-        }
+        public override IQueryable<Prova> Get() => base.Get().OrderBy(s => s.Data);
     }
 }

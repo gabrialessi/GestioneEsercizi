@@ -1,10 +1,6 @@
 ﻿using GestioneEsercizi.DA.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 
 namespace GestioneEsercizi.DA.Services
 {
@@ -20,35 +16,22 @@ namespace GestioneEsercizi.DA.Services
         /// Contesto di dati del database.
         /// </summary>
         protected C context;
-
         /// <summary>
         /// Metodo costruttore, si definisce il contesto di dati del database.
         /// </summary>
         /// <param name="ctx">Contesto di dati del database.</param>
-        protected DbDataRepository(C ctx)
-        {
-            context = ctx;
-        }
-
+        protected DbDataRepository(C ctx) => context = ctx;
         /// <summary>
         /// Ritorna un'entità in base all'id passato.
         /// </summary>
         /// <param name="id">Id dell'entità da ricavare.</param>
         /// <returns>Entità in base all'id passato.</returns>
-        public T Get(int id)
-        {
-            return Get().SingleOrDefault(be => be.Id == id);
-        }
-
+        public T Get(int id) => Get().SingleOrDefault(be => be.Id == id);
         /// <summary>
         /// Ritorna tutte le entità.
         /// </summary>
         /// <returns>Tutte le entità del modello di dati in questione.</returns>
-        public virtual IQueryable<T> Get()
-        {
-            return context.Set<T>();
-        }
-
+        public virtual IQueryable<T> Get() => context.Set<T>();
         /// <summary>
         /// Inserisce una nuova entità.
         /// </summary>
@@ -60,7 +43,6 @@ namespace GestioneEsercizi.DA.Services
             context.SaveChanges();
             return entity;
         }
-
         /// <summary>
         /// Modifica un'entità.
         /// </summary>
@@ -70,7 +52,6 @@ namespace GestioneEsercizi.DA.Services
             context.Entry(entity).State = EntityState.Modified;
             context.SaveChanges();
         }
-
         /// <summary>
         /// Elimina un'entità.
         /// </summary>
@@ -79,16 +60,6 @@ namespace GestioneEsercizi.DA.Services
         {
             context.Set<T>().Remove(entity);
             context.SaveChanges();
-        }
-
-        /// <summary>
-        /// Metodo utile per filtrare dei dati.
-        /// </summary>
-        /// <param name="predicate">Espressione filtrante.</param>
-        /// <returns>I dati filtrati.</returns>
-        public virtual IQueryable<T> Where(Expression<Func<T, bool>> predicate)
-        {
-            return context.Set<T>().Where(predicate);
         }
     }
 }

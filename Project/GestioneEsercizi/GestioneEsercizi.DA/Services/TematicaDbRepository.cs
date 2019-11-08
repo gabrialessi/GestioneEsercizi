@@ -1,8 +1,5 @@
 ﻿using GestioneEsercizi.DA.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace GestioneEsercizi.DA.Services
 {
@@ -15,17 +12,11 @@ namespace GestioneEsercizi.DA.Services
         /// Metodo costruttore, si definisce il contesto di dati.
         /// </summary>
         /// <param name="ctx">Contesto di dati del database.</param>
-        public TematicaDbRepository(AppDbContext ctx) : base(ctx)
-        {
-        }
-
+        public TematicaDbRepository(AppDbContext ctx) : base(ctx) { }
         /// <summary>
-        /// Ritorna tutte le entità ordinate per nome.
+        /// Ritorna tutte le entità ordinate per modulo.
         /// </summary>
-        /// <returns>Le entità ordinate per nome.</returns>
-        public override IQueryable<Tematica> Get()
-        {
-            return base.Get().OrderBy(s => s.Modulo.Nome);
-        }
+        /// <returns>Le entità ordinate per modulo.</returns>
+        public override IQueryable<Tematica> Get() => base.Get().OrderBy(s => s.Modulo.Nome);
     }
 }
