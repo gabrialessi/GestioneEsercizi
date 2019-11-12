@@ -12,7 +12,7 @@
         /// <summary>
         /// Anno della classe.
         /// </summary>
-        public Anno Anno { get; set; }
+        public virtual Anno Anno { get; set; }
         /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>

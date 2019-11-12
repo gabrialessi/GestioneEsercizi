@@ -12,7 +12,7 @@
         /// <summary>
         /// Modulo relativo alla tematica.
         /// </summary>
-        public Modulo Modulo { get; set; }
+        public virtual Modulo Modulo { get; set; }
         /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>

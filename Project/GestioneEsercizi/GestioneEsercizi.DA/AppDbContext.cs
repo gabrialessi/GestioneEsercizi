@@ -58,6 +58,7 @@ namespace GestioneEsercizi.DA
                     "D:\\Desktop\\Scuola\\4SAMT\\Progetti\\GestioneEsercizi\\Project"
                     + "\\GestioneEsercizi\\GestioneEsercizi.DA\\db\\GestioneEsercizi.sqlite";
                 optionsBuilder.UseSqlite("Data Source=" + dbPath);
+                optionsBuilder.UseLazyLoadingProxies().UseSqlite("Data Source=" + dbPath);
             }
         }
     }

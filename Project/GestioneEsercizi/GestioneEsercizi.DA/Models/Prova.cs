@@ -19,11 +19,11 @@ namespace GestioneEsercizi.DA.Models
         /// <summary>
         /// Anno della prova.
         /// </summary>
-        public Anno Anno { get; set; }
+        public virtual Anno Anno { get; set; }
         /// <summary>
         /// Insieme degli esercizi della prova.
         /// </summary>
-        public ICollection<EsercizioProva> EserciziProva { get; set; }
+        public virtual ICollection<EsercizioProva> EserciziProva { get; set; }
         /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>

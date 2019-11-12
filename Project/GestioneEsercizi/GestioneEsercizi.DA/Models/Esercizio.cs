@@ -18,11 +18,11 @@ namespace GestioneEsercizi.DA.Models
         /// <summary>
         /// Modulo relativo all'esercizio.
         /// </summary>
-        public Modulo Modulo { get; set; }
+        public virtual Modulo Modulo { get; set; }
         /// <summary>
         /// Esercizi della prova relativi all'esercizio.
         /// </summary>
-        public ICollection<EsercizioProva> EserciziProva { get; set; }
+        public virtual ICollection<EsercizioProva> EserciziProva { get; set; }
         /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>

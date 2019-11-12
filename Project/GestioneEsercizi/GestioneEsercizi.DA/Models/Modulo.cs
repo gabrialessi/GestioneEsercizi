@@ -14,15 +14,15 @@ namespace GestioneEsercizi.DA.Models
         /// <summary>
         /// Anno del modulo.
         /// </summary>
-        public Anno Anno { get; set; }
+        public virtual Anno Anno { get; set; }
         /// <summary>
         /// Insieme delle tematiche del modulo.
         /// </summary>
-        public ICollection<Tematica> Tematiche { get; set; }
+        public virtual ICollection<Tematica> Tematiche { get; set; }
         /// <summary>
         /// Insieme degli esercizi del modulo.
         /// </summary>
-        public ICollection<Esercizio> Esercizi { get; set; }
+        public virtual ICollection<Esercizio> Esercizi { get; set; }
         /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>

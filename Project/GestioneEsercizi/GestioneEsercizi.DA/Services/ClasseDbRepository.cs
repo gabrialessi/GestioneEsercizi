@@ -17,6 +17,6 @@ namespace GestioneEsercizi.DA.Services
         /// Ritorna tutte le entità ordinate per anno.
         /// </summary>
         /// <returns>Le entità ordinate per anno.</returns>
-        public override IQueryable<Classe> Get() => base.Get().OrderBy(s => s.Anno);
+        public override IQueryable<Classe> Get() => base.Get().OrderByDescending(s => s.Anno);
     }
 }

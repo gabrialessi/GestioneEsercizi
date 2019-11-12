@@ -14,15 +14,15 @@ namespace GestioneEsercizi.DA.Models
         /// <summary>
         /// Insieme delle classi dell'anno.
         /// </summary>
-        public ICollection<Classe> Classi { get; set; }
+        public virtual ICollection<Classe> Classi { get; set; }
         /// <summary>
         /// Insieme dei moduli dell'anno.
         /// </summary>
-        public ICollection<Modulo> Moduli { get; set; }
+        public virtual ICollection<Modulo> Moduli { get; set; }
         /// <summary>
         /// Insieme delle prove dell'anno.
         /// </summary>
-        public ICollection<Prova> Prove { get; set; }
+        public virtual ICollection<Prova> Prove { get; set; }
         /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>
