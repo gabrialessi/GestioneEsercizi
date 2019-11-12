@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GestioneEsercizi"
         xmlns:view="clr-namespace:GestioneEsercizi.Views"
         mc:Ignorable="d"
-        Title="Gestione Esercizi" Height="400" Width="600">
+        Title="Gestione Esercizi" Height="600" Width="800">
     <Grid>
         <view:MainView/>
     </Grid>

@@ -18,11 +18,7 @@ namespace GestioneEsercizi.ViewModels
         /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
-        public AboutViewModel() => RegisterCommands();
-        /// <summary>
-        /// Impostazione dei ViewModels e Commands relativi.
-        /// </summary>
-        private void RegisterCommands()
+        public AboutViewModel()
         {
             benvenutoViewModel = new BenvenutoViewModel();
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
