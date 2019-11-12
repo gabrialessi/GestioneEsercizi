@@ -26,10 +26,6 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         private ProvaListViewModel provaListViewModel;
         /// <summary>
-        /// Comando che porta alla schermata di benvenuto.
-        /// </summary>
-        public IDelegateCommand BenvenutoCommand { get; set; }
-        /// <summary>
         /// Comando che porta alla schermata di informazioni.
         /// </summary>
         public IDelegateCommand AboutCommand { get; set; }
@@ -55,28 +51,21 @@ namespace GestioneEsercizi.ViewModels
         }
         /// <summary>
         /// Metodo costruttore del ViewModel.
+        /// Vengono impostati i ViewModels e Commands relativi.
         /// </summary>
-        public MainViewModel() => RegisterCommands();
-        /// <summary>
-        /// Impostazione dei ViewModels e Commands relativi.
-        /// </summary>
-        private void RegisterCommands()
+        public MainViewModel()
         {
             benvenutoViewModel = new BenvenutoViewModel();
             aboutViewModel = new AboutViewModel();
             esercizioListViewModel = new EsercizioListViewModel();
             provaListViewModel = new ProvaListViewModel();
+            CurrentViewModel = benvenutoViewModel;
             AboutCommand = new DelegateCommand(OnAbout, CanAbout);
-            BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
             EsercizioListCommand = new DelegateCommand(OnEsercizioList, CanEsercizioList);
             ProvaListCommand = new DelegateCommand(OnProvaList, CanProvaList);
-            CurrentViewModel = benvenutoViewModel;
-            RegisterMessages();
+            // Ricezione dei messaggi da parte degli altri ViewModels.
+            Messenger.Default.Register<BindableBase>(this, OnViewModelReceived);
         }
-        /// <summary>
-        /// Ricezione dei messaggi da parte degli altri ViewModels.
-        /// </summary>
-        private void RegisterMessages() => Messenger.Default.Register<BindableBase>(this, OnViewModelReceived);
         /// <summary>
         /// Impostazione del ViewModel tramite la ricezione del messaggio.
         /// </summary>
