@@ -18,6 +18,10 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         private AboutViewModel aboutViewModel;
         /// <summary>
+        /// Campo che rappresenta il ViewModel della guida.
+        /// </summary>
+        private GuidaViewModel guidaViewModel;
+        /// <summary>
         /// Campo che rappresenta il ViewModel della lista degli esercizi.
         /// </summary>
         private EsercizioListViewModel esercizioListViewModel;
@@ -29,6 +33,10 @@ namespace GestioneEsercizi.ViewModels
         /// Comando che porta alla schermata di informazioni.
         /// </summary>
         public IDelegateCommand AboutCommand { get; set; }
+        /// <summary>
+        /// Comando che porta alla schermata della guida.
+        /// </summary>
+        public IDelegateCommand GuidaCommand { get; set; }
         /// <summary>
         /// Comando che porta alla lista degli esercizi.
         /// </summary>
@@ -57,10 +65,12 @@ namespace GestioneEsercizi.ViewModels
         {
             benvenutoViewModel = new BenvenutoViewModel();
             aboutViewModel = new AboutViewModel();
+            guidaViewModel = new GuidaViewModel();
             esercizioListViewModel = new EsercizioListViewModel();
             provaListViewModel = new ProvaListViewModel();
             CurrentViewModel = benvenutoViewModel;
             AboutCommand = new DelegateCommand(OnAbout, CanAbout);
+            GuidaCommand = new DelegateCommand(OnGuida, CanGuida);
             EsercizioListCommand = new DelegateCommand(OnEsercizioList, CanEsercizioList);
             ProvaListCommand = new DelegateCommand(OnProvaList, CanProvaList);
             // Ricezione dei messaggi da parte degli altri ViewModels.
@@ -71,10 +81,10 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         /// <param name="viewmodel">ViewModel da impostare.</param>
         public void OnViewModelReceived(BindableBase viewmodel) => CurrentViewModel = viewmodel;
-        private void OnBenvenuto(object obj) => CurrentViewModel = benvenutoViewModel;
-        private bool CanBenvenuto(object arg) => true;
         private void OnAbout(object obj) => CurrentViewModel = aboutViewModel;
         private bool CanAbout(object arg) => true;
+        private void OnGuida(object obj) => CurrentViewModel = guidaViewModel;
+        private bool CanGuida(object arg) => true;
         private void OnEsercizioList(object obj) => CurrentViewModel = esercizioListViewModel;
         private bool CanEsercizioList(object arg) => true;
         private void OnProvaList(object obj) => CurrentViewModel = provaListViewModel;
