@@ -7,9 +7,11 @@
              xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
+    <!-- Riferimento dei dati preso dal MainViewModel -->
     <UserControl.DataContext>
         <viewmodel:MainViewModel/>
     </UserControl.DataContext>
+    <!-- Inclusione dei ViewModels e delle rispettive Views -->
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type viewmodel:BenvenutoViewModel}">
             <local:BenvenutoView/>
@@ -37,6 +39,7 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid>
+        <!-- Menu -->
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
@@ -50,6 +53,7 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
+        <!-- ViewModel da mostrare (CurrentViewModel) -->
         <ContentControl Content="{Binding Path=CurrentViewModel}"/>
     </Grid>
 </UserControl>

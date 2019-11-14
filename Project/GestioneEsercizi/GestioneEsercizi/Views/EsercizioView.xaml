@@ -25,6 +25,7 @@
         <TextBox x:Name="tbTitolo" Grid.Column="0" Grid.Row="0" Margin="5" />
         <TextBlock IsHitTestVisible="False" Text="Titolo esercizio..." 
                    VerticalAlignment="Center" Foreground="DarkGray" Margin="10 0 0 0">
+            <!-- Placeholder -->
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -48,6 +49,7 @@
         <TextBlock Grid.ColumnSpan="2" Grid.Row="1"
                    IsHitTestVisible="False" Text="Testo esercizio..." 
                    Margin="10 10 0 0" Foreground="DarkGray">
+            <!-- Placeholder -->
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>

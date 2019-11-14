@@ -7,6 +7,7 @@
              xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
+    <!-- Riferimento dei dati preso dal BenvenutoViewModel -->
     <UserControl.DataContext>
         <viewmodel:BenvenutoViewModel/>
     </UserControl.DataContext>
@@ -16,29 +17,20 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button                         
-            Grid.Column="0"             
-            VerticalAlignment="Center"  
-            HorizontalAlignment="Center"
-            Content="Impostazioni di Base"
-            Padding="10" 
-            Command="{Binding Path=ImpostazioniBaseCommand}">
-        </Button>
-        <Button 
-            Grid.Column="1"
-            VerticalAlignment="Center" 
-            HorizontalAlignment="Center"
-            Content="Nuovo Esercizio"
-            Padding="10"
-            Command="{Binding Path=EsercizioCommand}">
-        </Button>
-        <Button 
-            Grid.Column="2"
-            VerticalAlignment="Center" 
-            HorizontalAlignment="Center"
-            Content="Creazione Prova"
-            Padding="10"
-            Command="{Binding Path=ProvaCommand}">
-        </Button>
+        <!-- Impostazioni di base -->
+        <Button Grid.Column="0" 
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                Content="Impostazioni di Base" Padding="10"
+                Command="{Binding Path=ImpostazioniBaseCommand}"/>
+        <!-- Nuovo Esercizio -->
+        <Button Grid.Column="1" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" 
+                Content="Nuovo Esercizio" Padding="10"
+                Command="{Binding Path=EsercizioCommand}"/>
+        <!-- Creazione Prova -->
+        <Button Grid.Column="2"
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                Content="Creazione Prova" Padding="10"
+                Command="{Binding Path=ProvaCommand}"/>
     </Grid>
 </UserControl>
