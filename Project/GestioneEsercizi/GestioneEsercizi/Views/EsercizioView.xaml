@@ -60,11 +60,14 @@
             </TextBlock.Style>
         </TextBlock>
         <!-- Immagine -->
-        <Grid Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" 
-              Margin="50" AllowDrop="True" Drop="Grid_Drop">
-            <Label x:Name="lImmagine" Content="Immagine" />
-            <Button x:Name="bSfoglia" VerticalAlignment="Center" 
+        <Border Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1"
+                BorderBrush="Black" BorderThickness=".5" Margin="50"
+                AllowDrop="True" Drop="Image_Drop">
+            <Grid>
+                <Label x:Name="lImmagine" Content="Trascina immagine" />
+                <Button x:Name="bSfoglia" VerticalAlignment="Center" 
                 HorizontalAlignment="Center" Content="Sfoglia..." Click="bSfoglia_Click" />
-        </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>
