@@ -7,10 +7,11 @@
              xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <!-- Riferimento dei dati preso dal ImpostazioniBaseViewModel -->
     <UserControl.DataContext>
         <viewmodel:ImpostazioniBaseViewModel/>
     </UserControl.DataContext>
-    <Grid Margin="50">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -22,18 +23,23 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+        <!-- Titoli tabelle -->
         <Label Grid.Column="0" Grid.Row="0" Content="Classi" HorizontalAlignment="Center" />
         <Label Grid.Column="1" Grid.Row="0" Content="Moduli" HorizontalAlignment="Center" />
         <Label Grid.Column="2" Grid.Row="0" Content="Tematiche" HorizontalAlignment="Center" />
-        <DataGrid x:Name="dgClassi" Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Path=Classi}" />
-        <DataGrid x:Name="dgModuli" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Path=Moduli}" />
-        <DataGrid x:Name="dgTematiche" Grid.Column="2" Grid.Row="1" ItemsSource="{Binding Path=Tematiche}" />
-        <Button Grid.Column="0" Grid.Row="2" Content="+" FontSize="18" />
-        <Button Grid.Column="1" Grid.Row="2" Content="+" FontSize="18" />
-        <Button Grid.Column="2" Grid.Row="2" Content="+" FontSize="18" />
-        <Button 
-            Grid.Column="2" Grid.Row="3"
-            Margin="10 10 0 0" Content="Indietro"
-            Command="{Binding Path=BenvenutoCommand}" />
+        <!-- Tabelle con i dati -->
+        <DataGrid x:Name="classiDataGrid" Grid.Column="0" Grid.Row="1" 
+                  ItemsSource="{Binding Path=Classi}" />
+        <DataGrid x:Name="moduliDataGrid" Grid.Column="1" Grid.Row="1" 
+                  ItemsSource="{Binding Path=Moduli}" />
+        <DataGrid x:Name="tematicheDataGrid" Grid.Column="2" Grid.Row="1" 
+                  ItemsSource="{Binding Path=Tematiche}" />
+        <!-- Pulsanti per aggiunta dati -->
+        <Button Grid.Column="0" Grid.Row="2" Content="Nuova classe"/>
+        <Button Grid.Column="1" Grid.Row="2" Content="Nuovo modulo" />
+        <Button Grid.Column="2" Grid.Row="2" Content="Nuova tematica" />
+        <!-- Pulsante indietro -->
+        <Button Grid.Row="3" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Margin="10" Content="Indietro" Command="{Binding Path=BenvenutoCommand}" />
     </Grid>
 </UserControl>
