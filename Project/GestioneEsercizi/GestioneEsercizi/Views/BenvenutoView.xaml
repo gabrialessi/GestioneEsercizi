@@ -17,6 +17,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <!-- Titolo -->
         <Label Grid.ColumnSpan="3" FontSize="20" FontFamily="Consolas"
                VerticalAlignment="Top" HorizontalAlignment="Center"
                Content="Gestione Esercizi" Margin="0 20 0 0" />

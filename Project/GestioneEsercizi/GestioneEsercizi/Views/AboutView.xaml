@@ -7,29 +7,33 @@
              xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
+    <!-- Riferimento dei dati preso dall'AboutViewModel -->
     <UserControl.DataContext>
         <viewmodel:AboutViewModel/>
     </UserControl.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Image Grid.Column="1" Source="/Images/GA.png"/>
-        <StackPanel Grid.Column="1" Grid.Row="1"
-                    VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label x:Name="lGitHub" Content="GestioneEsercizi" HorizontalAlignment="Center"/>
-            <Label Content="By Gabriele Alessi" HorizontalAlignment="Center"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <!-- Immagine -->
+            <Image Source="/Images/GA.png" Width="100" Margin="20"/>
+            <!-- Link a GitHub -->
+            <TextBlock HorizontalAlignment="Center">
+                <Hyperlink RequestNavigate="NavigateWebsite"
+                           NavigateUri="https://github.com/gabrialessi/GestioneEsercizi">
+                    GitHub - GestioneEsercizi
+                </Hyperlink>
+            </TextBlock>
+            <!-- Link al sito web personale -->
+            <TextBlock HorizontalAlignment="Center">
+                <Hyperlink RequestNavigate="NavigateWebsite"
+                           NavigateUri="http://www.samtinfo.ch/i16alegab/index.html">
+                    Author - Gabriele Alessi
+                </Hyperlink>
+            </TextBlock>
+            <!-- Versione -->
             <Label Content="Version - 1.0" HorizontalAlignment="Center"/>
         </StackPanel>
-        <Button Grid.Column="2" Grid.Row="2" Margin="20"
-                VerticalAlignment="Bottom" Content="Indietro"
-                Command="{Binding Path=BenvenutoCommand}" />
+        <!-- Pulsante indietro -->
+        <Button Margin="0 0 20 20" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Content="Indietro" Command="{Binding Path=BenvenutoCommand}" />
     </Grid>
 </UserControl>
