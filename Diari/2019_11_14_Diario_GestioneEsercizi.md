@@ -15,7 +15,7 @@ Oggi ho maggiormente lavorato sulla documentazione delle Views e dei ViewModels 
         AllowDrop="True" Drop="Image_Drop">
     <Grid>
         <Label x:Name="lImmagine" Content="Trascina immagine" />
-        <Button x:Name="bSfoglia" VerticalAlignment="Center" 
+        <Button x:Name="bSfoglia" VerticalAlignment="Center"
         HorizontalAlignment="Center" Content="Sfoglia..." Click="bSfoglia_Click" />
     </Grid>
 </Border>
@@ -60,7 +60,7 @@ Successivamente ho velocemente creato una bozza del ViewModel e della View per l
 
 Per la documentazione ho concluso i capitoli sulla MainView e la BenvenutoView.
 
->La MainView è l’interfaccia principale e ha il compito di rappresentare il MainViewModel, quindi viene selezionata la View da mostrare attraverso i Commands e il campo CurrentViewModel. 
+>La MainView è l’interfaccia principale e ha il compito di rappresentare il MainViewModel, quindi viene selezionata la View da mostrare attraverso i Commands e il campo CurrentViewModel.
 Sono inoltre presenti i riferimenti di tutti gli altri ViewModels e le rispettive Views nella sezione delle risorse.
 Questa View sarà l’unico contenuto presente nella finestra principale del progetto, cioè MainWindow.
 
