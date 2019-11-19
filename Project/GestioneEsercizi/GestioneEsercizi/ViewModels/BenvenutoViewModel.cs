@@ -7,11 +7,29 @@ namespace GestioneEsercizi.ViewModels
     /// </summary>
     public class BenvenutoViewModel : BindableBase
     {
+        /// <summary>
+        /// Campo che rappresenta il ViewModel delle impostazioni di base.
+        /// </summary>
         private ImpostazioniBaseViewModel impostazionibaseViewModel;
+        /// <summary>
+        /// Campo che rappresenta il ViewModel dell'esercizio.
+        /// </summary>
         private EsercizioViewModel esercizioViewModel;
+        /// <summary>
+        /// Campo che rappresenta il ViewModel della creazione prova.
+        /// </summary>
         private ProvaViewModel provaViewModel;
+        /// <summary>
+        /// Comando che porta alle impostazioni di base.
+        /// </summary>
         public IDelegateCommand ImpostazioniBaseCommand { get; set; }
+        /// <summary>
+        /// Comando che porta alla creazione di un esercizio.
+        /// </summary>
         public IDelegateCommand EsercizioCommand { get; set; }
+        /// <summary>
+        /// Comando che porta alla creazione di una prova.
+        /// </summary>
         public IDelegateCommand ProvaCommand { get; set; }
         /// <summary>
         /// Metodo costruttore del ViewModel.
