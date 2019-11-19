@@ -4,16 +4,13 @@ using System.Windows.Controls;
 
 namespace GestioneEsercizi.Views
 {
-    /// <summary>
-    /// Interaction logic for EsercizioView.xaml
-    /// </summary>
     public partial class EsercizioView : UserControl
     {
-        public EsercizioView()
-        {
-            InitializeComponent();
-        }
-        private void bSfoglia_Click(object sender, RoutedEventArgs e)
+        public EsercizioView() => InitializeComponent();
+        /// <summary>
+        /// Ricerca del file tramite explorer sul click del pulsante.
+        /// </summary>
+        private void sfogliaButtonClick(object sender, RoutedEventArgs e)
         {
             // Creazione File Explorer
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -22,7 +19,10 @@ namespace GestioneEsercizi.Views
             // Mostrare il file selezionato nella label
             if (dlg.ShowDialog() == true) SetLabelContent(dlg.FileName);
         }
-        private void Image_Drop(object sender, DragEventArgs e)
+        /// <summary>
+        /// Drag&Drop dell'immagine.
+        /// </summary>
+        private void ImageDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
@@ -30,6 +30,10 @@ namespace GestioneEsercizi.Views
                 SetLabelContent(files[0]);
             }
         }
-        private void SetLabelContent(string filename) => lImmagine.Content = Path.GetFileName(filename);
+        /// <summary>
+        /// Impostazione del nome dell'immagine selezionata sul Label.
+        /// </summary>
+        /// <param name="filename">Nome del file.</param>
+        private void SetLabelContent(string filename) => immagineLabel.Content = Path.GetFileName(filename);
     }
 }

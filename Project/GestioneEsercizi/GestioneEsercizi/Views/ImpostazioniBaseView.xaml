@@ -11,7 +11,7 @@
     <UserControl.DataContext>
         <viewmodel:ImpostazioniBaseViewModel/>
     </UserControl.DataContext>
-    <Grid >
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
