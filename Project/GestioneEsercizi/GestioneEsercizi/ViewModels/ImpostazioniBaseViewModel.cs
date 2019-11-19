@@ -12,10 +12,6 @@ namespace GestioneEsercizi.ViewModels
     public class ImpostazioniBaseViewModel : BindableBase
     {
         /// <summary>
-        /// Campo che rappresenta il ViewModel della schermata di benvenuto.
-        /// </summary>
-        private BenvenutoViewModel benvenutoViewModel;
-        /// <summary>
         /// Comando che porta alla schermata di benvenuto.
         /// </summary>
         public IDelegateCommand BenvenutoCommand { get; set; }
@@ -36,6 +32,7 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         public ImpostazioniBaseViewModel()
         {
+            BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
             AppDbContext ctx = new AppDbContext();
             ClasseDbRepository repoClasse = new ClasseDbRepository(ctx);
             ModuloDbRepository repoModulo = new ModuloDbRepository(ctx);
@@ -43,10 +40,8 @@ namespace GestioneEsercizi.ViewModels
             Classi = new ObservableCollection<Classe>(repoClasse.Get());
             Moduli = new ObservableCollection<Modulo>(repoModulo.Get());
             Tematiche = new ObservableCollection<Tematica>(repoTematica.Get());
-            //benvenutoViewModel = new BenvenutoViewModel();
-            //BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
         }
-        private void OnBenvenuto(object obj) => Messenger.Default.Send<BindableBase>(benvenutoViewModel);
+        private void OnBenvenuto(object obj) => Messenger.Default.Send<BindableBase>(new BenvenutoViewModel());
         private bool CanBenvenuto(object arg) => true;
     }
 }

@@ -33,7 +33,7 @@ namespace GestioneEsercizi.ViewModels
             ProvaDbRepository repo = new ProvaDbRepository(new AppDbContext());
             Prove = new ObservableCollection<Prova>(repo.Get());
         }
-        private void OnBenvenuto(object obj) { Messenger.Default.Send<BindableBase>(benvenutoViewModel); }
-        private bool CanBenvenuto(object arg) { return true; }
+        private void OnBenvenuto(object obj) => Messenger.Default.Send<BindableBase>(benvenutoViewModel);
+        private bool CanBenvenuto(object arg) => true;
     }
 }
