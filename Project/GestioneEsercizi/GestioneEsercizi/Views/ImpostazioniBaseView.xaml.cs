@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace GestioneEsercizi.Views
 {
@@ -7,6 +8,7 @@ namespace GestioneEsercizi.Views
         public ImpostazioniBaseView()
         {
             InitializeComponent();
+            //classiDataGrid.Columns[0].Visibility = Visibility.Collapsed;
         }
     }
 }

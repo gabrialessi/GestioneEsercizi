@@ -1,7 +1,4 @@
 ﻿using MVVM;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GestioneEsercizi.ViewModels
 {
@@ -16,16 +13,10 @@ namespace GestioneEsercizi.ViewModels
         public IDelegateCommand ImpostazioniBaseCommand { get; set; }
         public IDelegateCommand EsercizioCommand { get; set; }
         public IDelegateCommand ProvaCommand { get; set; }
-
         /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
-        public BenvenutoViewModel() { RegisterCommands(); }
-
-        /// <summary>
-        /// Impostazione dei ViewModels e Commands relativi.
-        /// </summary>
-        private void RegisterCommands()
+        public BenvenutoViewModel()
         {
             impostazionibaseViewModel = new ImpostazioniBaseViewModel();
             esercizioViewModel = new EsercizioViewModel();
@@ -34,12 +25,11 @@ namespace GestioneEsercizi.ViewModels
             EsercizioCommand = new DelegateCommand(OnEsercizio, CanEsercizio);
             ProvaCommand = new DelegateCommand(OnProva, CanProva);
         }
-
-        private void OnImpostazioniBase(object obj) { Messenger.Default.Send<BindableBase>(impostazionibaseViewModel); }
-        private bool CanImpostazioniBase(object arg) { return true; }
-        private void OnEsercizio(object obj) { Messenger.Default.Send<BindableBase>(esercizioViewModel); }
-        private bool CanEsercizio(object arg) { return true; }
-        private void OnProva(object obj) { Messenger.Default.Send<BindableBase>(provaViewModel); }
-        private bool CanProva(object arg) { return true; }
+        private void OnImpostazioniBase(object obj) => Messenger.Default.Send<BindableBase>(impostazionibaseViewModel);
+        private bool CanImpostazioniBase(object arg) => true;
+        private void OnEsercizio(object obj) => Messenger.Default.Send<BindableBase>(esercizioViewModel);
+        private bool CanEsercizio(object arg) => true;
+        private void OnProva(object obj) => Messenger.Default.Send<BindableBase>(provaViewModel);
+        private bool CanProva(object arg) => true;
     }
 }
