@@ -18,7 +18,12 @@
         </Grid.RowDefinitions>
         <!-- Griglia con i dati degli esercizi -->
         <DataGrid x:Name="eserciziDataGrid" Grid.Row="0" IsReadOnly="True"
-                  ItemsSource="{Binding Path=Esercizi}"/>
+                  ItemsSource="{Binding Path=Esercizi}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Titolo" Binding="{Binding Path=Titolo}" />
+                <DataGridTextColumn Header="Modulo" Binding="{Binding Path=Modulo}" />
+            </DataGrid.Columns>
+        </DataGrid>
         <!-- Pulsante indietro -->
         <Button Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                 Margin="10" Content="Indietro" Command="{Binding Path=BenvenutoCommand}" />

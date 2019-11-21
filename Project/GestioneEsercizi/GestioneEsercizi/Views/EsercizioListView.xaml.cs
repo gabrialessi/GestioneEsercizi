@@ -1,14 +1,9 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace GestioneEsercizi.Views
 {
     public partial class EsercizioListView : UserControl
     {
-        public EsercizioListView()
-        {
-            InitializeComponent();
-            //eserciziDataGrid.Columns[0].Visibility = Visibility.Collapsed;
-        }
+        public EsercizioListView() => InitializeComponent();
     }
 }
