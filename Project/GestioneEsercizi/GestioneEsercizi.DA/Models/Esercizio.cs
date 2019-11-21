@@ -28,5 +28,21 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         /// <returns>Il titolo dell'esercizio.</returns>
         public override string ToString() => Titolo;
+        /// <summary>
+        /// Metodo costruttore della classe.
+        /// </summary>
+        /// <param name="titolo">Titolo dell'esercizio.</param>
+        /// <param name="testo">Testo dell'esercizio.</param>
+        /// <param name="modulo">Modulo dell'esercizio.</param>
+        public Esercizio(string titolo, string testo, Modulo modulo)
+        {
+            Titolo = titolo;
+            Testo = testo;
+            Modulo = modulo;
+        }
+        /// <summary>
+        /// Metodo costruttore vuoto.
+        /// </summary>
+        public Esercizio() { }
     }
 }

@@ -3,7 +3,7 @@
     /// <summary>
     /// Modello di dati dell'esercizio della prova.
     /// </summary>
-    public class EsercizioProva : Esercizio
+    public class EsercizioProva : BaseEntity
     {
         /// <summary>
         /// Esercizio relativo all'esercizio della prova.
@@ -17,6 +17,6 @@
         /// Stampa dell'oggetto.
         /// </summary>
         /// <returns>Il titolo dell'esercizio.</returns>
-        public override string ToString() => Titolo;
+        public override string ToString() => Esercizio.Titolo;
     }
 }
