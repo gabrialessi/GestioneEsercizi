@@ -24,10 +24,11 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <!-- Titolo esercizio -->
-        <TextBox x:Name="titoloTextBox" Grid.Column="0" Grid.Row="0" />
+        <TextBox x:Name="titoloTextBox" Grid.Column="0" Grid.ColumnSpan="2"
+                 Grid.Row="0" Text="{Binding Path=Titolo}"/>
         <!-- Placeholder -->
         <TextBlock IsHitTestVisible="False" Text="Titolo esercizio..." 
-                   VerticalAlignment="Center" Foreground="DarkGray" Margin="10 0 0 0">
+                   VerticalAlignment="Center" Foreground="DarkGray" Margin="5 0 0 0">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -40,18 +41,17 @@
             </TextBlock.Style>
         </TextBlock>
         <!-- Menu - Modulo, Tematica, Classe -->
-        <ComboBox Grid.Column="1" Grid.Row="0" SelectedIndex="0" 
-                  ItemsSource="{Binding Path=Moduli}"  />
         <ComboBox Grid.Column="2" Grid.Row="0" SelectedIndex="0" 
-                  ItemsSource="{Binding Path=Tematiche}" />
+                  ItemsSource="{Binding Path=Moduli}" Text="{Binding Path=Modulo}" />
         <ComboBox Grid.Column="3" Grid.Row="0" SelectedIndex="0" 
-                  ItemsSource="{Binding Path=Classi}" />
+                  ItemsSource="{Binding Path=Tematiche}" Text="{Binding Path=Tematica}" />
         <!-- Testo esercizio -->
-        <TextBox x:Name="testoTextBox" Grid.ColumnSpan="2" Grid.Row="1" Margin="10" />
+        <TextBox x:Name="testoTextBox" Grid.ColumnSpan="2" Grid.Row="1" Margin="10"
+                 Text="{Binding Path=Testo}"/>
         <!-- Placeholder -->
         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
                    IsHitTestVisible="False" Text="Testo esercizio..." 
-                   Margin="20 20 0 0" Foreground="DarkGray">
+                   Margin="15 13 0 0" Foreground="DarkGray">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -78,7 +78,7 @@
             <!-- Pulsante salva -->
             <Button Content="Annulla" Command="{Binding Path=BenvenutoCommand}" />
             <!-- Pulsante indietro -->
-            <Button Content="Salva" Margin="10 0 0 0" />
+            <Button Content="Salva" Margin="10 0 0 0" Command="{Binding Path=SalvaCommand}" />
         </DockPanel>
     </Grid>
 </UserControl>
