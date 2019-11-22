@@ -4,9 +4,63 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GestioneEsercizi.Views"
+             xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <!-- Riferimento dei dati preso da ProvaViewModel -->
+    <UserControl.DataContext>
+        <viewmodel:ProvaViewModel />
+    </UserControl.DataContext>
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <!-- Titolo prova -->
+        <TextBox x:Name="titoloTextBox" Grid.Column="0" Grid.Row="0"
+                 VerticalAlignment="Center" Text="{Binding Path=Titolo}"/>
+        <!-- Placeholder -->
+        <TextBlock IsHitTestVisible="False" Text="Titolo prova..." 
+                   VerticalAlignment="Center" Foreground="DarkGray" Margin="5 0 0 0">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=titoloTextBox}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <!-- Data della prova -->
+        <DatePicker x:Name="dataDatePicker"  Grid.Column="0" Grid.Row="1" 
+                    VerticalAlignment="Center" SelectedDate="{Binding Path=Data}" />
+        <!-- Anno della prova -->
+        <ComboBox Grid.Column="0" Grid.Row="2" SelectedIndex="0" VerticalAlignment="Center"
+                  ItemsSource="{Binding Path=Anni}" Text="{Binding Path=Anno}" />
+        <!-- Griglia con i dati degli esercizi -->
+        <DataGrid x:Name="eserciziDataGrid" Grid.Column="1"  Grid.Row="0" Grid.RowSpan="3" Margin="5"
+                  IsReadOnly="True" ItemsSource="{Binding Path=Esercizi}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Titolo" Binding="{Binding Path=Titolo}" />
+                <DataGridTextColumn Header="Modulo" Binding="{Binding Path=Modulo}" />
+                <DataGridCheckBoxColumn Header="Inserire nella prova" 
+                                        Selector.IsSelected="{Binding Path=Esercizio}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DockPanel Grid.Column="1" Grid.Row="3" Margin="10"
+                   VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <!-- Pulsante annulla -->
+            <Button Content="Annulla" Command="{Binding Path=BenvenutoCommand}" />
+            <!-- Pulsante salva -->
+            <Button Content="Salva" Margin="10 0 0 0" Command="{Binding Path=SalvaCommand}" />
+        </DockPanel>
     </Grid>
 </UserControl>
