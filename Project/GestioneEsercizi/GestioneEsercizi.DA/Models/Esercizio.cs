@@ -24,10 +24,9 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public virtual ICollection<EsercizioProva> EserciziProva { get; set; }
         /// <summary>
-        /// Stampa dell'oggetto.
+        /// Metodo costruttore vuoto.
         /// </summary>
-        /// <returns>Il titolo dell'esercizio.</returns>
-        public override string ToString() => Titolo;
+        public Esercizio() { }
         /// <summary>
         /// Metodo costruttore della classe.
         /// </summary>
@@ -41,8 +40,9 @@ namespace GestioneEsercizi.DA.Models
             Modulo = modulo;
         }
         /// <summary>
-        /// Metodo costruttore vuoto.
+        /// Stampa dell'oggetto.
         /// </summary>
-        public Esercizio() { }
+        /// <returns>Il titolo dell'esercizio.</returns>
+        public override string ToString() => Titolo;
     }
 }

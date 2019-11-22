@@ -24,6 +24,15 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public virtual ICollection<Prova> Prove { get; set; }
         /// <summary>
+        /// Metodo costruttore vuoto.
+        /// </summary>
+        public Anno() { }
+        /// <summary>
+        /// Metodo costruttore dell'anno.
+        /// </summary>
+        /// <param name="annata">Annata dell'entità.</param>
+        public Anno(string annata) => Annata = annata;
+        /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>
         /// <returns>L'annata dell'oggetto.</returns>

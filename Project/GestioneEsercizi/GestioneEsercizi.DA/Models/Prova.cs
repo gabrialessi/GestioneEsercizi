@@ -25,6 +25,24 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public virtual ICollection<EsercizioProva> EserciziProva { get; set; }
         /// <summary>
+        /// Metodo costruttore vuoto.
+        /// </summary>
+        public Prova() { }
+        /// <summary>
+        /// Metodo costruttore della prova.
+        /// </summary>
+        /// <param name="titolo">Titolo della prova.</param>
+        /// <param name="data">Data della prova.</param>
+        /// <param name="anno">Anno della prova.</param>
+        /// <param name="esercizi">Esercizi della prova.</param>
+        public Prova(string titolo, DateTime data, Anno anno, ICollection<EsercizioProva> esercizi)
+        {
+            Titolo = titolo;
+            Data = data;
+            Anno = anno;
+            EserciziProva = esercizi;
+        }
+        /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>
         /// <returns>Il titolo della prova.</returns>
