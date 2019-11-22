@@ -35,6 +35,20 @@ namespace GestioneEsercizi.DA.Models
         [NotMapped]
         public string EserciziList => string.Join(", ", Esercizi);
         /// <summary>
+        /// Metodo costruttore vuoto.
+        /// </summary>
+        public Modulo() { }
+        /// <summary>
+        /// Metodo costruttore del modulo.
+        /// </summary>
+        /// <param name="nome">Nome del modulo</param>
+        /// <param name="anno">Anno del modulo.</param>
+        public Modulo(string nome, Anno anno)
+        {
+            Nome = nome;
+            Anno = anno;
+        }
+        /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>
         /// <returns>Il nome del modulo.</returns>

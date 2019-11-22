@@ -14,6 +14,20 @@
         /// </summary>
         public virtual Anno Anno { get; set; }
         /// <summary>
+        /// Metodo costruttore vuoto.
+        /// </summary>
+        public Classe() { }
+        /// <summary>
+        /// Metodo costruttore della classe.
+        /// </summary>
+        /// <param name="nome">Nome della classe.</param>
+        /// <param name="anno">Anno della classe.</param>
+        public Classe(string nome, Anno anno)
+        {
+            Nome = nome;
+            Anno = anno;
+        }
+        /// <summary>
         /// Stampa dell'oggetto.
         /// </summary>
         /// <returns>Il nome della classe.</returns>
