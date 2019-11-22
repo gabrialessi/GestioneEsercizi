@@ -75,9 +75,9 @@
         </Border>
         <DockPanel Grid.Row="2" Grid.Column="3" Margin="10"
                    VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <!-- Pulsante salva -->
+            <!-- Pulsante annulla -->
             <Button Content="Annulla" Command="{Binding Path=BenvenutoCommand}" />
-            <!-- Pulsante indietro -->
+            <!-- Pulsante salva -->
             <Button Content="Salva" Margin="10 0 0 0" Command="{Binding Path=SalvaCommand}" />
         </DockPanel>
     </Grid>
