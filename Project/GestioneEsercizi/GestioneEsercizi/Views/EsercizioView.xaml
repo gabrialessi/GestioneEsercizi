@@ -15,8 +15,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -24,10 +22,11 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <!-- Titolo esercizio -->
-        <TextBox x:Name="titoloTextBox" Grid.Column="0" Grid.ColumnSpan="2"
-                 Grid.Row="0" Text="{Binding Path=Titolo}"/>
+        <TextBox x:Name="titoloTextBox" Grid.Column="0" Grid.Row="0"
+                 Text="{Binding Path=Titolo}"/>
         <!-- Placeholder -->
-        <TextBlock IsHitTestVisible="False" Text="Titolo esercizio..." 
+        <TextBlock Grid.Column="0" Grid.Row="0"
+                   IsHitTestVisible="False" Text="Titolo esercizio..." 
                    VerticalAlignment="Center" Foreground="DarkGray" Margin="5 0 0 0">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
@@ -41,13 +40,13 @@
             </TextBlock.Style>
         </TextBlock>
         <!-- Modulo dell'esercizio -->
-        <ComboBox Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" SelectedIndex="0"
-                  ItemsSource="{Binding Path=Moduli}" Text="{Binding Path=Modulo}"/>
+        <ComboBox Grid.Column="1" Grid.Row="0" SelectedIndex="0"
+                  ItemsSource="{Binding Path=Moduli}" SelectedItem="{Binding Path=Modulo}"/>
         <!-- Testo esercizio -->
-        <TextBox x:Name="testoTextBox" Grid.ColumnSpan="2" Grid.Row="1" Margin="10"
+        <TextBox x:Name="testoTextBox" Grid.Column="0" Grid.Row="1" Margin="10"
                  Text="{Binding Path=Testo}"/>
         <!-- Placeholder -->
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+        <TextBlock Grid.Column="0" Grid.Row="1"
                    IsHitTestVisible="False" Text="Testo esercizio..." 
                    Margin="15 13 0 0" Foreground="DarkGray">
             <TextBlock.Style>
@@ -62,7 +61,7 @@
             </TextBlock.Style>
         </TextBlock>
         <!-- Immagine -->
-        <Border Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1"
+        <Border Grid.Column="1" Grid.Row="1"
                 BorderBrush="Black" BorderThickness="0.5" Margin="50"
                 AllowDrop="True" Drop="ImageDrop">
             <Grid>
@@ -71,7 +70,7 @@
                 HorizontalAlignment="Center" Content="Sfoglia..." Click="sfogliaButtonClick" />
             </Grid>
         </Border>
-        <DockPanel Grid.Row="2" Grid.Column="3" Margin="10"
+        <DockPanel Grid.Column="1" Grid.Row="2" Margin="10"
                    VerticalAlignment="Bottom" HorizontalAlignment="Right">
             <!-- Pulsante annulla -->
             <Button Content="Annulla" Command="{Binding Path=BenvenutoCommand}" />
