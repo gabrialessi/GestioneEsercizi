@@ -1,5 +1,7 @@
 ﻿using GestioneEsercizi.DA.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.IO;
 
 namespace GestioneEsercizi.DA
 {
@@ -54,10 +56,9 @@ namespace GestioneEsercizi.DA
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string dbPath =
-                    "D:\\Desktop\\Scuola\\4SAMT\\Progetti\\GestioneEsercizi\\Project"
-                    + "\\GestioneEsercizi\\GestioneEsercizi.DA\\db\\GestioneEsercizi.sqlite";
-                optionsBuilder.UseLazyLoadingProxies().UseSqlite("Data Source=" + dbPath);
+                string dbPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GestioneEsercizi";
+                Directory.CreateDirectory(dbPath);
+                optionsBuilder.UseLazyLoadingProxies().UseSqlite("Data Source=" + dbPath + "\\GestioneEsercizi.sqlite");
             }
         }
     }

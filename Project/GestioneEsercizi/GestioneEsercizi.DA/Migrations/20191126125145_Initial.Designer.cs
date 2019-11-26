@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestioneEsercizi.DA.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191105130505_Initial")]
+    [Migration("20191126125145_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,10 +57,6 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<int?>("ModuloId")
                         .HasColumnType("INTEGER");
 
@@ -75,8 +71,27 @@ namespace GestioneEsercizi.DA.Migrations
                     b.HasIndex("ModuloId");
 
                     b.ToTable("Esercizi");
+                });
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Esercizio");
+            modelBuilder.Entity("GestioneEsercizi.DA.Models.EsercizioProva", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("EsercizioId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ProvaId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EsercizioId");
+
+                    b.HasIndex("ProvaId");
+
+                    b.ToTable("EserciziProva");
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Modulo", b =>
@@ -139,23 +154,6 @@ namespace GestioneEsercizi.DA.Migrations
                     b.ToTable("Tematiche");
                 });
 
-            modelBuilder.Entity("GestioneEsercizi.DA.Models.EsercizioProva", b =>
-                {
-                    b.HasBaseType("GestioneEsercizi.DA.Models.Esercizio");
-
-                    b.Property<int?>("EsercizioId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("ProvaId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasIndex("EsercizioId");
-
-                    b.HasIndex("ProvaId");
-
-                    b.HasDiscriminator().HasValue("EsercizioProva");
-                });
-
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Classe", b =>
                 {
                     b.HasOne("GestioneEsercizi.DA.Models.Anno", "Anno")
@@ -168,6 +166,17 @@ namespace GestioneEsercizi.DA.Migrations
                     b.HasOne("GestioneEsercizi.DA.Models.Modulo", "Modulo")
                         .WithMany("Esercizi")
                         .HasForeignKey("ModuloId");
+                });
+
+            modelBuilder.Entity("GestioneEsercizi.DA.Models.EsercizioProva", b =>
+                {
+                    b.HasOne("GestioneEsercizi.DA.Models.Esercizio", "Esercizio")
+                        .WithMany("EserciziProva")
+                        .HasForeignKey("EsercizioId");
+
+                    b.HasOne("GestioneEsercizi.DA.Models.Prova", "Prova")
+                        .WithMany("EserciziProva")
+                        .HasForeignKey("ProvaId");
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Modulo", b =>
@@ -189,17 +198,6 @@ namespace GestioneEsercizi.DA.Migrations
                     b.HasOne("GestioneEsercizi.DA.Models.Modulo", "Modulo")
                         .WithMany("Tematiche")
                         .HasForeignKey("ModuloId");
-                });
-
-            modelBuilder.Entity("GestioneEsercizi.DA.Models.EsercizioProva", b =>
-                {
-                    b.HasOne("GestioneEsercizi.DA.Models.Esercizio", "Esercizio")
-                        .WithMany("EserciziProva")
-                        .HasForeignKey("EsercizioId");
-
-                    b.HasOne("GestioneEsercizi.DA.Models.Prova", "Prova")
-                        .WithMany("EserciziProva")
-                        .HasForeignKey("ProvaId");
                 });
 #pragma warning restore 612, 618
         }

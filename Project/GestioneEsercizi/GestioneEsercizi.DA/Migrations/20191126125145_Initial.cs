@@ -82,6 +82,27 @@ namespace GestioneEsercizi.DA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Esercizi",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Titolo = table.Column<string>(nullable: true),
+                    Testo = table.Column<string>(nullable: true),
+                    ModuloId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Esercizi", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Esercizi_Moduli_ModuloId",
+                        column: x => x.ModuloId,
+                        principalTable: "Moduli",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Tematiche",
                 columns: table => new
                 {
@@ -102,35 +123,25 @@ namespace GestioneEsercizi.DA.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Esercizi",
+                name: "EserciziProva",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Titolo = table.Column<string>(nullable: true),
-                    Testo = table.Column<string>(nullable: true),
-                    ModuloId = table.Column<int>(nullable: true),
-                    Discriminator = table.Column<string>(nullable: false),
                     EsercizioId = table.Column<int>(nullable: true),
                     ProvaId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Esercizi", x => x.Id);
+                    table.PrimaryKey("PK_EserciziProva", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Esercizi_Moduli_ModuloId",
-                        column: x => x.ModuloId,
-                        principalTable: "Moduli",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Esercizi_Esercizi_EsercizioId",
+                        name: "FK_EserciziProva_Esercizi_EsercizioId",
                         column: x => x.EsercizioId,
                         principalTable: "Esercizi",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Esercizi_Prove_ProvaId",
+                        name: "FK_EserciziProva_Prove_ProvaId",
                         column: x => x.ProvaId,
                         principalTable: "Prove",
                         principalColumn: "Id",
@@ -148,13 +159,13 @@ namespace GestioneEsercizi.DA.Migrations
                 column: "ModuloId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Esercizi_EsercizioId",
-                table: "Esercizi",
+                name: "IX_EserciziProva_EsercizioId",
+                table: "EserciziProva",
                 column: "EsercizioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Esercizi_ProvaId",
-                table: "Esercizi",
+                name: "IX_EserciziProva_ProvaId",
+                table: "EserciziProva",
                 column: "ProvaId");
 
             migrationBuilder.CreateIndex(
@@ -179,10 +190,13 @@ namespace GestioneEsercizi.DA.Migrations
                 name: "Classi");
 
             migrationBuilder.DropTable(
-                name: "Esercizi");
+                name: "EserciziProva");
 
             migrationBuilder.DropTable(
                 name: "Tematiche");
+
+            migrationBuilder.DropTable(
+                name: "Esercizi");
 
             migrationBuilder.DropTable(
                 name: "Prove");
