@@ -56,9 +56,12 @@ namespace GestioneEsercizi.DA
         {
             if (!optionsBuilder.IsConfigured)
             {
-                string dbPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GestioneEsercizi";
+                string dbPath =
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+                    + "\\GestioneEsercizi";
                 Directory.CreateDirectory(dbPath);
-                optionsBuilder.UseLazyLoadingProxies().UseSqlite("Data Source=" + dbPath + "\\GestioneEsercizi.sqlite");
+                optionsBuilder.UseLazyLoadingProxies().UseSqlite(
+                    "Data Source=" + dbPath + "\\GestioneEsercizi.sqlite");
             }
         }
     }
