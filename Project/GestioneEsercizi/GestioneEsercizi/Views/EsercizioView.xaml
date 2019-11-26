@@ -40,11 +40,9 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <!-- Menu - Modulo, Tematica, Classe -->
-        <ComboBox Grid.Column="2" Grid.Row="0" SelectedIndex="0" 
-                  ItemsSource="{Binding Path=Moduli}" Text="{Binding Path=Modulo}" />
-        <ComboBox Grid.Column="3" Grid.Row="0" SelectedIndex="0" 
-                  ItemsSource="{Binding Path=Tematiche}" Text="{Binding Path=Tematica}" />
+        <!-- Modulo dell'esercizio -->
+        <ComboBox Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="0" SelectedIndex="0"
+                  ItemsSource="{Binding Path=Moduli}" Text="{Binding Path=Modulo}"/>
         <!-- Testo esercizio -->
         <TextBox x:Name="testoTextBox" Grid.ColumnSpan="2" Grid.Row="1" Margin="10"
                  Text="{Binding Path=Testo}"/>

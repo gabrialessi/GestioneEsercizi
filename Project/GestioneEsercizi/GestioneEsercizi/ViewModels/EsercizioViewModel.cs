@@ -21,10 +21,6 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         public ObservableCollection<Modulo> Moduli { get; set; }
         /// <summary>
-        /// Insieme dinamico dei dati delle tematiche.
-        /// </summary>
-        public ObservableCollection<Tematica> Tematiche { get; set; }
-        /// <summary>
         /// Titolo dell'esercizio da aggiungere.
         /// </summary>
         public string Titolo { get; set; }
@@ -44,9 +40,7 @@ namespace GestioneEsercizi.ViewModels
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
             SalvaCommand = new DelegateCommand(OnSalva, CanSalva);
             ModuloDbRepository repoModulo = new ModuloDbRepository(new AppDbContext());
-            TematicaDbRepository repoTematica = new TematicaDbRepository(new AppDbContext());
             Moduli = new ObservableCollection<Modulo>(repoModulo.Get());
-            Tematiche = new ObservableCollection<Tematica>(repoTematica.Get());
         }
         private void OnBenvenuto(object obj) => Messenger.Default.Send<BindableBase>(new BenvenutoViewModel());
         private bool CanBenvenuto(object arg) => true;
