@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 // ReSharper disable RedundantUsingDirective
-using System.Reflection;
 
 // ReSharper restore RedundantUsingDirective
 

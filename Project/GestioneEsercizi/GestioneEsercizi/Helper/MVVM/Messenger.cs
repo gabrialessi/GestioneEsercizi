@@ -4,8 +4,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 // ReSharper disable RedundantUsingDirective
-using System.Reflection;
-using System.Threading;
 // ReSharper restore RedundantUsingDirective
 
 #if SILVERLIGHT

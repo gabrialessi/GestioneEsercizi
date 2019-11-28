@@ -3,9 +3,7 @@ using GestioneEsercizi.DA.Models;
 using GestioneEsercizi.DA.Services;
 using MVVM;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace GestioneEsercizi.ViewModels
 {
