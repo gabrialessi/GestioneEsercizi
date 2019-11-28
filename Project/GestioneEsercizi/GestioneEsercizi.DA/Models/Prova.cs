@@ -35,12 +35,11 @@ namespace GestioneEsercizi.DA.Models
         /// <param name="data">Data della prova.</param>
         /// <param name="anno">Anno della prova.</param>
         /// <param name="esercizi">Esercizi della prova.</param>
-        public Prova(string titolo, DateTime data, Anno anno, ICollection<EsercizioProva> esercizi)
+        public Prova(string titolo, DateTime data, Anno anno)
         {
             Titolo = titolo;
             Data = data;
             Anno = anno;
-            EserciziProva = esercizi;
         }
         /// <summary>
         /// Stampa dell'oggetto.

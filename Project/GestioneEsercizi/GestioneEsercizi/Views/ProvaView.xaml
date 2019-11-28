@@ -44,15 +44,14 @@
                     VerticalAlignment="Center" SelectedDate="{Binding Path=Data}" />
         <!-- Anno della prova -->
         <ComboBox Grid.Column="0" Grid.Row="2" SelectedIndex="0" VerticalAlignment="Center"
-                  ItemsSource="{Binding Path=Anni}" Text="{Binding Path=Anno}" />
+                  ItemsSource="{Binding Path=Anni}" SelectedItem="{Binding Path=Anno}" />
         <!-- Griglia con i dati degli esercizi -->
-        <DataGrid x:Name="eserciziDataGrid" Grid.Column="1"  Grid.Row="0" Grid.RowSpan="3" Margin="5"
+        <DataGrid x:Name="eserciziDataGrid" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Margin="5"
                   IsReadOnly="True" ItemsSource="{Binding Path=Esercizi}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titolo" Binding="{Binding Path=Titolo}" />
                 <DataGridTextColumn Header="Modulo" Binding="{Binding Path=Modulo}" />
-                <DataGridCheckBoxColumn Header="Inserire nella prova" 
-                                        Selector.IsSelected="{Binding Path=Esercizio}" />
+                <DataGridCheckBoxColumn Header="Inserire nella prova" IsReadOnly="False" />
             </DataGrid.Columns>
         </DataGrid>
         <DockPanel Grid.Column="1" Grid.Row="3" Margin="10"

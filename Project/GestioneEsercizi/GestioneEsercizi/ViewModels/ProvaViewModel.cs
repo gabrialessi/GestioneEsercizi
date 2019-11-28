@@ -3,6 +3,7 @@ using GestioneEsercizi.DA.Models;
 using GestioneEsercizi.DA.Services;
 using MVVM;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace GestioneEsercizi.ViewModels
@@ -53,6 +54,16 @@ namespace GestioneEsercizi.ViewModels
         private bool CanBenvenuto(object arg) => true;
         private void OnSalva(object obj)
         {
+            ProvaDbRepository repoProva = new ProvaDbRepository(new AppDbContext());
+            EsercizioProvaDbRepository repoEsercizioProva = new EsercizioProvaDbRepository(new AppDbContext());
+            // Aggiungo la prova
+            Prova prova = new Prova(Titolo, Data, Anno);
+            repoProva.Insert(prova);
+            // Aggiungo gli esercizi della prova
+            foreach (Esercizio esercizio in new List<Esercizio>(Esercizi))
+            {
+                repoEsercizioProva.Insert(new EsercizioProva(esercizio, prova));
+            }
             OnBenvenuto(obj);
         }
         private bool CanSalva(object arg) => true;
