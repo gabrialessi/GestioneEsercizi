@@ -55,14 +55,14 @@ namespace GestioneEsercizi.ViewModels
         private void OnSalva(object obj)
         {
             ProvaDbRepository repoProva = new ProvaDbRepository(new AppDbContext());
-            EsercizioProvaDbRepository repoEsercizioProva = new EsercizioProvaDbRepository(new AppDbContext());
+            EsercizioProvaDbRepository repo = new EsercizioProvaDbRepository(new AppDbContext());
             // Aggiungo la prova
             Prova prova = new Prova(Titolo, Data, Anno);
             repoProva.Insert(prova);
             // Aggiungo gli esercizi della prova
             foreach (Esercizio esercizio in new List<Esercizio>(Esercizi))
             {
-                repoEsercizioProva.Insert(new EsercizioProva(esercizio, prova));
+                repo.Insert(new EsercizioProva(esercizio, prova));
             }
             OnBenvenuto(obj);
         }
