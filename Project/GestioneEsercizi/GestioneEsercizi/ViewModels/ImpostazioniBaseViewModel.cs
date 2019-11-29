@@ -45,9 +45,9 @@ namespace GestioneEsercizi.ViewModels
         public ImpostazioniBaseViewModel()
         {
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
-            ClasseCommand = new DelegateCommand(OnBenvenuto, CanClasse);
-            ModuloCommand = new DelegateCommand(OnBenvenuto, CanModulo);
-            TematicaCommand = new DelegateCommand(OnBenvenuto, CanTematica);
+            ClasseCommand = new DelegateCommand(OnClasse, CanClasse);
+            ModuloCommand = new DelegateCommand(OnModulo, CanModulo);
+            TematicaCommand = new DelegateCommand(OnTematica, CanTematica);
             AppDbContext ctx = new AppDbContext();
             ClasseDbRepository repoClasse = new ClasseDbRepository(ctx);
             ModuloDbRepository repoModulo = new ModuloDbRepository(ctx);

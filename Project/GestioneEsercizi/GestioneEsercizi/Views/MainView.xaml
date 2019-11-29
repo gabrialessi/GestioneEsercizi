@@ -31,6 +31,15 @@
         <DataTemplate DataType="{x:Type viewmodel:ImpostazioniBaseViewModel}">
             <local:ImpostazioniBaseView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:ClasseViewModel}">
+            <local:ClasseView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:ModuloViewModel}">
+            <local:ModuloView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:TematicaViewModel}">
+            <local:TematicaView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewmodel:EsercizioViewModel}">
             <local:EsercizioView/>
         </DataTemplate>
