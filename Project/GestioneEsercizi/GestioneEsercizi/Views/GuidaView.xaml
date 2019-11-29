@@ -7,7 +7,36 @@
              xmlns:viewmodel="clr-namespace:GestioneEsercizi.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="styleTextBlock" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Margin" Value="10 0 0 0" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <Label>Guida</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <!-- Titolo -->
+            <Label FontSize="25" FontWeight="Bold" Content="Guida - Gestione Esercizi"/>
+            <!-- Introduzione -->
+            <Label FontSize="20" Content="Introduzione"/>
+            <TextBlock x:Name="introduzione" Style="{StaticResource styleTextBlock}"/>
+            <!-- Impostazioni base -->
+            <Label FontSize="20" Content="Impostazioni di Base"/>
+            <TextBlock x:Name="impostazioniBase" Style="{StaticResource styleTextBlock}"/>
+            <!-- Nuovo Esercizio -->
+            <Label FontSize="20" Content="Nuovo Esercizio"/>
+            <TextBlock x:Name="esercizio" Style="{StaticResource styleTextBlock}"/>
+            <!-- Creazione Prova -->
+            <Label FontSize="20" Content="Creazione Prova"/>
+            <TextBlock x:Name="prova" Style="{StaticResource styleTextBlock}"/>
+        </StackPanel>
+        <!-- Pulsante indietro -->
+        <Button Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Content="Indietro" Command="{Binding Path=BenvenutoCommand}" Grid.Row="1" />
     </Grid>
 </UserControl>
