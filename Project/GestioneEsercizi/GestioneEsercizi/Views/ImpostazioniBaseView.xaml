@@ -54,9 +54,12 @@
             </DataGrid.Columns>
         </DataGrid>
         <!-- Pulsanti per aggiunta dati -->
-        <Button Grid.Column="0" Grid.Row="2" Content="Nuova classe"/>
-        <Button Grid.Column="1" Grid.Row="2" Content="Nuovo modulo" />
-        <Button Grid.Column="2" Grid.Row="2" Content="Nuova tematica" />
+        <Button Grid.Column="0" Grid.Row="2" Content="Nuova classe"
+                Command="{Binding Path=ClasseCommand}"/>
+        <Button Grid.Column="1" Grid.Row="2" Content="Nuovo modulo"
+                Command="{Binding Path=ModuloCommand}"/>
+        <Button Grid.Column="2" Grid.Row="2" Content="Nuova tematica"
+                Command="{Binding Path=TematicaCommand}"/>
         <!-- Pulsante indietro -->
         <Button Grid.Row="3" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Right"
                 Margin="10" Content="Indietro" Command="{Binding Path=BenvenutoCommand}" />
