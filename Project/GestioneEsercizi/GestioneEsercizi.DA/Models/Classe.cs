@@ -1,4 +1,6 @@
-﻿namespace GestioneEsercizi.DA.Models
+﻿using System.Collections.Generic;
+
+namespace GestioneEsercizi.DA.Models
 {
     /// <summary>
     /// Modello di dati della classe.
@@ -13,6 +15,14 @@
         /// Anno della classe.
         /// </summary>
         public virtual Anno Anno { get; set; }
+        /// <summary>
+        /// Insieme dei moduli della classe.
+        /// </summary>
+        public virtual ICollection<Modulo> Moduli { get; set; }
+        /// <summary>
+        /// Insieme delle prove della classe.
+        /// </summary>
+        public virtual ICollection<Prova> Prove { get; set; }
         /// <summary>
         /// Metodo costruttore vuoto.
         /// </summary>

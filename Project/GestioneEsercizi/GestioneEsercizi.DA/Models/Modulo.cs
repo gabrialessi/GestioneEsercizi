@@ -13,9 +13,9 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public string Nome { get; set; }
         /// <summary>
-        /// Anno del modulo.
+        /// Classe del modulo.
         /// </summary>
-        public virtual Anno Anno { get; set; }
+        public virtual Classe Classe { get; set; }
         /// <summary>
         /// Insieme delle tematiche del modulo.
         /// </summary>
@@ -42,11 +42,11 @@ namespace GestioneEsercizi.DA.Models
         /// Metodo costruttore del modulo.
         /// </summary>
         /// <param name="nome">Nome del modulo</param>
-        /// <param name="anno">Anno del modulo.</param>
-        public Modulo(string nome, Anno anno)
+        /// <param name="classe">Classe del modulo.</param>
+        public Modulo(string nome, Classe classe)
         {
             Nome = nome;
-            Anno = anno;
+            Classe = classe;
         }
         /// <summary>
         /// Stampa dell'oggetto.

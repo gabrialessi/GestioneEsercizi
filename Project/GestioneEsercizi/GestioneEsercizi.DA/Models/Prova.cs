@@ -17,9 +17,9 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public DateTime Data { get; set; }
         /// <summary>
-        /// Anno della prova.
+        /// Classe della prova.
         /// </summary>
-        public virtual Anno Anno { get; set; }
+        public virtual Classe Classe { get; set; }
         /// <summary>
         /// Insieme degli esercizi della prova.
         /// </summary>
@@ -33,13 +33,13 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         /// <param name="titolo">Titolo della prova.</param>
         /// <param name="data">Data della prova.</param>
-        /// <param name="anno">Anno della prova.</param>
+        /// <param name="classe">Classe della prova.</param>
         /// <param name="esercizi">Esercizi della prova.</param>
-        public Prova(string titolo, DateTime data, Anno anno)
+        public Prova(string titolo, DateTime data, Classe classe)
         {
             Titolo = titolo;
             Data = data;
-            Anno = anno;
+            Classe = classe;
         }
         /// <summary>
         /// Stampa dell'oggetto.

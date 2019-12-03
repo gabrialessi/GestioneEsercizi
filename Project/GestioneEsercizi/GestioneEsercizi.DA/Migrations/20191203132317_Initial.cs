@@ -47,18 +47,11 @@ namespace GestioneEsercizi.DA.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(nullable: true),
-                    AnnoId = table.Column<int>(nullable: true),
                     ClasseId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Moduli", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Moduli_Anni_AnnoId",
-                        column: x => x.AnnoId,
-                        principalTable: "Anni",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Moduli_Classi_ClasseId",
                         column: x => x.ClasseId,
@@ -75,18 +68,11 @@ namespace GestioneEsercizi.DA.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Titolo = table.Column<string>(nullable: true),
                     Data = table.Column<DateTime>(nullable: false),
-                    AnnoId = table.Column<int>(nullable: true),
                     ClasseId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Prove", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Prove_Anni_AnnoId",
-                        column: x => x.AnnoId,
-                        principalTable: "Anni",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Prove_Classi_ClasseId",
                         column: x => x.ClasseId,
@@ -183,19 +169,9 @@ namespace GestioneEsercizi.DA.Migrations
                 column: "ProvaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Moduli_AnnoId",
-                table: "Moduli",
-                column: "AnnoId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Moduli_ClasseId",
                 table: "Moduli",
                 column: "ClasseId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Prove_AnnoId",
-                table: "Prove",
-                column: "AnnoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Prove_ClasseId",

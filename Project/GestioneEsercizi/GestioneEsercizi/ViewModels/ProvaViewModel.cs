@@ -19,9 +19,9 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         public IDelegateCommand SalvaCommand { get; set; }
         /// <summary>
-        /// Insieme dinamico dei dati degli anni.
+        /// Insieme dinamico dei dati delle classi.
         /// </summary>
-        public ObservableCollection<Anno> Anni { get; set; }
+        public ObservableCollection<Classe> Classi { get; set; }
         /// <summary>
         /// Insieme dinamico dei dati degli esercizi.
         /// </summary>
@@ -35,9 +35,9 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         public DateTime Data { get; set; }
         /// <summary>
-        /// Anno della prova.
+        /// Classe della prova.
         /// </summary>
-        public Anno Anno { get; set; }
+        public Classe Classe { get; set; }
         /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
@@ -45,9 +45,9 @@ namespace GestioneEsercizi.ViewModels
         {
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
             SalvaCommand = new DelegateCommand(OnSalva, CanSalva);
-            AnnoDbRepository repoAnno = new AnnoDbRepository(new AppDbContext());
+            ClasseDbRepository repoClasse = new ClasseDbRepository(new AppDbContext());
             EsercizioDbRepository repoEsercizio = new EsercizioDbRepository(new AppDbContext());
-            Anni = new ObservableCollection<Anno>(repoAnno.Get());
+            Classi = new ObservableCollection<Classe>(repoClasse.Get());
             Esercizi = new ObservableCollection<Esercizio>(repoEsercizio.Get());
         }
         private void OnBenvenuto(object obj) => Messenger.Default.Send<BindableBase>(new BenvenutoViewModel());
@@ -57,7 +57,7 @@ namespace GestioneEsercizi.ViewModels
             ProvaDbRepository repoProva = new ProvaDbRepository(new AppDbContext());
             EsercizioProvaDbRepository repo = new EsercizioProvaDbRepository(new AppDbContext());
             // Aggiungo la prova
-            Prova prova = new Prova(Titolo, Data, Anno);
+            Prova prova = new Prova(Titolo, Data, Classe);
             repoProva.Insert(prova);
             // Aggiungo gli esercizi della prova
             foreach (Esercizio esercizio in new List<Esercizio>(Esercizi))

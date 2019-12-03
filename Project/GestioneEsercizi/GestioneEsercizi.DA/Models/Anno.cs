@@ -16,14 +16,6 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public virtual ICollection<Classe> Classi { get; set; }
         /// <summary>
-        /// Insieme dei moduli dell'anno.
-        /// </summary>
-        public virtual ICollection<Modulo> Moduli { get; set; }
-        /// <summary>
-        /// Insieme delle prove dell'anno.
-        /// </summary>
-        public virtual ICollection<Prova> Prove { get; set; }
-        /// <summary>
         /// Metodo costruttore vuoto.
         /// </summary>
         public Anno() { }

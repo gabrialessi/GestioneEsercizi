@@ -17,17 +17,17 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         public IDelegateCommand SalvaCommand { get; set; }
         /// <summary>
-        /// Insieme dinamico dei dati degli anni.
+        /// Insieme dinamico dei dati delle classi.
         /// </summary>
-        public ObservableCollection<Anno> Anni { get; set; }
+        public ObservableCollection<Classe> Classi { get; set; }
         /// <summary>
         /// Nome del modulo da aggiungere.
         /// </summary>
         public string Nome { get; set; }
         /// <summary>
-        /// Anno del modulo da aggiungere.
+        /// Classe del modulo da aggiungere.
         /// </summary>
-        public Anno Anno { get; set; }
+        public Classe Classe { get; set; }
         /// <summary>
         /// Metodo costruttore del ViewModel.
         /// </summary>
@@ -35,8 +35,8 @@ namespace GestioneEsercizi.ViewModels
         {
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
             SalvaCommand = new DelegateCommand(OnSalva, CanSalva);
-            AnnoDbRepository repo = new AnnoDbRepository(new AppDbContext());
-            Anni = new ObservableCollection<Anno>(repo.Get());
+            ClasseDbRepository repo = new ClasseDbRepository(new AppDbContext());
+            Classi = new ObservableCollection<Classe>(repo.Get());
         }
         private void OnBenvenuto(object obj) => Messenger.Default.Send<BindableBase>(new BenvenutoViewModel());
         private bool CanBenvenuto(object arg) => true;
@@ -44,7 +44,7 @@ namespace GestioneEsercizi.ViewModels
         {
             ModuloDbRepository repo = new ModuloDbRepository(new AppDbContext());
             // Aggiungo il modulo
-            repo.Insert(new Modulo(Nome, Anno));
+            repo.Insert(new Modulo(Nome, Classe));
             OnBenvenuto(obj);
         }
         private bool CanSalva(object arg) => true;

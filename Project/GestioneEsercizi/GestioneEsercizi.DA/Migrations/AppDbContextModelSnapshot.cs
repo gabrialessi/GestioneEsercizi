@@ -98,9 +98,6 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AnnoId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("ClasseId")
                         .HasColumnType("INTEGER");
 
@@ -108,8 +105,6 @@ namespace GestioneEsercizi.DA.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AnnoId");
 
                     b.HasIndex("ClasseId");
 
@@ -122,9 +117,6 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AnnoId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("ClasseId")
                         .HasColumnType("INTEGER");
 
@@ -135,8 +127,6 @@ namespace GestioneEsercizi.DA.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AnnoId");
 
                     b.HasIndex("ClasseId");
 
@@ -189,22 +179,14 @@ namespace GestioneEsercizi.DA.Migrations
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Modulo", b =>
                 {
-                    b.HasOne("GestioneEsercizi.DA.Models.Anno", "Anno")
-                        .WithMany()
-                        .HasForeignKey("AnnoId");
-
-                    b.HasOne("GestioneEsercizi.DA.Models.Classe", null)
+                    b.HasOne("GestioneEsercizi.DA.Models.Classe", "Classe")
                         .WithMany("Moduli")
                         .HasForeignKey("ClasseId");
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Prova", b =>
                 {
-                    b.HasOne("GestioneEsercizi.DA.Models.Anno", "Anno")
-                        .WithMany()
-                        .HasForeignKey("AnnoId");
-
-                    b.HasOne("GestioneEsercizi.DA.Models.Classe", null)
+                    b.HasOne("GestioneEsercizi.DA.Models.Classe", "Classe")
                         .WithMany("Prove")
                         .HasForeignKey("ClasseId");
                 });
