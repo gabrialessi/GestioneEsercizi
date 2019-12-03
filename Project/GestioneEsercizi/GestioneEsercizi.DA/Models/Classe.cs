@@ -16,6 +16,10 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public virtual Anno Anno { get; set; }
         /// <summary>
+        /// Id dell'anno (FK).
+        /// </summary>
+        public int AnnoId { get; set; }
+        /// <summary>
         /// Insieme dei moduli della classe.
         /// </summary>
         public virtual ICollection<Modulo> Moduli { get; set; }
@@ -35,7 +39,7 @@ namespace GestioneEsercizi.DA.Models
         public Classe(string nome, Anno anno)
         {
             Nome = nome;
-            Anno = anno;
+            AnnoId = anno.Id;
         }
         /// <summary>
         /// Stampa dell'oggetto.

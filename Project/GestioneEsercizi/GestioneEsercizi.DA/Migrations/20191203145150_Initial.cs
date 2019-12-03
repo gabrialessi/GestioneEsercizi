@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GestioneEsercizi.DA.Migrations
 {
@@ -27,7 +27,7 @@ namespace GestioneEsercizi.DA.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(nullable: true),
-                    AnnoId = table.Column<int>(nullable: true)
+                    AnnoId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -37,7 +37,7 @@ namespace GestioneEsercizi.DA.Migrations
                         column: x => x.AnnoId,
                         principalTable: "Anni",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

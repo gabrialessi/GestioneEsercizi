@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestioneEsercizi.DA.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191203132317_Initial")]
+    [Migration("20191203145150_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0");
+                .HasAnnotation("ProductVersion", "3.0.1");
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Anno", b =>
                 {
@@ -38,7 +38,7 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AnnoId")
+                    b.Property<int>("AnnoId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nome")
@@ -158,7 +158,9 @@ namespace GestioneEsercizi.DA.Migrations
                 {
                     b.HasOne("GestioneEsercizi.DA.Models.Anno", "Anno")
                         .WithMany("Classi")
-                        .HasForeignKey("AnnoId");
+                        .HasForeignKey("AnnoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Esercizio", b =>
