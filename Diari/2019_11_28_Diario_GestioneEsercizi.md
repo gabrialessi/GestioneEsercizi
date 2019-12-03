@@ -29,7 +29,7 @@ Per il resto del tempo ho documentato il lavoro svolto, cioè i ViewModels di Es
 
 ## Problemi riscontrati e soluzioni adottate
 
-Ho un problema che riguarda il salvataggio della prova. Infatti ho bisogno di definire gli esercizi da inserire però non riesco a trovare un modo su come reperirli dalla View. Per ora utilizzo una `DataGridCheckBoxColumn` pensando di poter ottenere gli esercizi che vengono vistati, ma questo sistema sembra non funzionare. Dovrei consultare il docente per cercare una soluzione. 
+Ho un problema che riguarda il salvataggio della prova. Infatti ho bisogno di definire gli esercizi da inserire però non riesco a trovare un modo su come reperirli dalla View. Per ora utilizzo una `DataGridCheckBoxColumn` pensando di poter ottenere gli esercizi che vengono vistati, ma questo sistema sembra non funzionare. Dovrei consultare il docente per cercare una soluzione.
 
 ## Punto della situazione rispetto alla pianificazione
 
