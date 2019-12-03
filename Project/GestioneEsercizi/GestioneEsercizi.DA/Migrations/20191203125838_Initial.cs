@@ -8,34 +8,34 @@ namespace GestioneEsercizi.DA.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Anni",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Annata = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Anni", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Classi",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(nullable: true),
-                    AnnoId = table.Column<int>(nullable: true)
+                    Nome = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Classi", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Anni",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Annata = table.Column<string>(nullable: true),
+                    ClasseId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Anni", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Classi_Anni_AnnoId",
-                        column: x => x.AnnoId,
-                        principalTable: "Anni",
+                        name: "FK_Anni_Classi_ClasseId",
+                        column: x => x.ClasseId,
+                        principalTable: "Classi",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -47,7 +47,8 @@ namespace GestioneEsercizi.DA.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(nullable: true),
-                    AnnoId = table.Column<int>(nullable: true)
+                    AnnoId = table.Column<int>(nullable: true),
+                    ClasseId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -56,6 +57,12 @@ namespace GestioneEsercizi.DA.Migrations
                         name: "FK_Moduli_Anni_AnnoId",
                         column: x => x.AnnoId,
                         principalTable: "Anni",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Moduli_Classi_ClasseId",
+                        column: x => x.ClasseId,
+                        principalTable: "Classi",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -68,7 +75,8 @@ namespace GestioneEsercizi.DA.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Titolo = table.Column<string>(nullable: true),
                     Data = table.Column<DateTime>(nullable: false),
-                    AnnoId = table.Column<int>(nullable: true)
+                    AnnoId = table.Column<int>(nullable: true),
+                    ClasseId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -77,6 +85,12 @@ namespace GestioneEsercizi.DA.Migrations
                         name: "FK_Prove_Anni_AnnoId",
                         column: x => x.AnnoId,
                         principalTable: "Anni",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Prove_Classi_ClasseId",
+                        column: x => x.ClasseId,
+                        principalTable: "Classi",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -149,9 +163,9 @@ namespace GestioneEsercizi.DA.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Classi_AnnoId",
-                table: "Classi",
-                column: "AnnoId");
+                name: "IX_Anni_ClasseId",
+                table: "Anni",
+                column: "ClasseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Esercizi_ModuloId",
@@ -174,9 +188,19 @@ namespace GestioneEsercizi.DA.Migrations
                 column: "AnnoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Moduli_ClasseId",
+                table: "Moduli",
+                column: "ClasseId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Prove_AnnoId",
                 table: "Prove",
                 column: "AnnoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Prove_ClasseId",
+                table: "Prove",
+                column: "ClasseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tematiche_ModuloId",
@@ -186,9 +210,6 @@ namespace GestioneEsercizi.DA.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Classi");
-
             migrationBuilder.DropTable(
                 name: "EserciziProva");
 
@@ -206,6 +227,9 @@ namespace GestioneEsercizi.DA.Migrations
 
             migrationBuilder.DropTable(
                 name: "Anni");
+
+            migrationBuilder.DropTable(
+                name: "Classi");
         }
     }
 }

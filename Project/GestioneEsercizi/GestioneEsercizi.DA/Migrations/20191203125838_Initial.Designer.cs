@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestioneEsercizi.DA.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191126125145_Initial")]
+    [Migration("20191203125838_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,12 @@ namespace GestioneEsercizi.DA.Migrations
                     b.Property<string>("Annata")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("ClasseId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ClasseId");
 
                     b.ToTable("Anni");
                 });
@@ -38,15 +43,10 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AnnoId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Nome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AnnoId");
 
                     b.ToTable("Classi");
                 });
@@ -103,12 +103,17 @@ namespace GestioneEsercizi.DA.Migrations
                     b.Property<int?>("AnnoId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("ClasseId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Nome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AnnoId");
+
+                    b.HasIndex("ClasseId");
 
                     b.ToTable("Moduli");
                 });
@@ -122,6 +127,9 @@ namespace GestioneEsercizi.DA.Migrations
                     b.Property<int?>("AnnoId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("ClasseId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("Data")
                         .HasColumnType("TEXT");
 
@@ -131,6 +139,8 @@ namespace GestioneEsercizi.DA.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AnnoId");
+
+                    b.HasIndex("ClasseId");
 
                     b.ToTable("Prove");
                 });
@@ -154,11 +164,11 @@ namespace GestioneEsercizi.DA.Migrations
                     b.ToTable("Tematiche");
                 });
 
-            modelBuilder.Entity("GestioneEsercizi.DA.Models.Classe", b =>
+            modelBuilder.Entity("GestioneEsercizi.DA.Models.Anno", b =>
                 {
-                    b.HasOne("GestioneEsercizi.DA.Models.Anno", "Anno")
-                        .WithMany("Classi")
-                        .HasForeignKey("AnnoId");
+                    b.HasOne("GestioneEsercizi.DA.Models.Classe", "Classe")
+                        .WithMany("Anni")
+                        .HasForeignKey("ClasseId");
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Esercizio", b =>
@@ -182,15 +192,23 @@ namespace GestioneEsercizi.DA.Migrations
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Modulo", b =>
                 {
                     b.HasOne("GestioneEsercizi.DA.Models.Anno", "Anno")
-                        .WithMany("Moduli")
+                        .WithMany()
                         .HasForeignKey("AnnoId");
+
+                    b.HasOne("GestioneEsercizi.DA.Models.Classe", null)
+                        .WithMany("Moduli")
+                        .HasForeignKey("ClasseId");
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Prova", b =>
                 {
                     b.HasOne("GestioneEsercizi.DA.Models.Anno", "Anno")
-                        .WithMany("Prove")
+                        .WithMany()
                         .HasForeignKey("AnnoId");
+
+                    b.HasOne("GestioneEsercizi.DA.Models.Classe", null)
+                        .WithMany("Prove")
+                        .HasForeignKey("ClasseId");
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Tematica", b =>
