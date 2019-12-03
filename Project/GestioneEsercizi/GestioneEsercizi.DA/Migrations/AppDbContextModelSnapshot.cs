@@ -25,12 +25,7 @@ namespace GestioneEsercizi.DA.Migrations
                     b.Property<string>("Annata")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ClasseId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ClasseId");
 
                     b.ToTable("Anni");
                 });
@@ -41,10 +36,15 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("AnnoId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Nome")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AnnoId");
 
                     b.ToTable("Classi");
                 });
@@ -162,11 +162,11 @@ namespace GestioneEsercizi.DA.Migrations
                     b.ToTable("Tematiche");
                 });
 
-            modelBuilder.Entity("GestioneEsercizi.DA.Models.Anno", b =>
+            modelBuilder.Entity("GestioneEsercizi.DA.Models.Classe", b =>
                 {
-                    b.HasOne("GestioneEsercizi.DA.Models.Classe", "Classe")
-                        .WithMany("Anni")
-                        .HasForeignKey("ClasseId");
+                    b.HasOne("GestioneEsercizi.DA.Models.Anno", "Anno")
+                        .WithMany("Classi")
+                        .HasForeignKey("AnnoId");
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Esercizio", b =>
