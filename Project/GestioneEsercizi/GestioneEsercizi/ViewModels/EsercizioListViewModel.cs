@@ -12,10 +12,6 @@ namespace GestioneEsercizi.ViewModels
     public class EsercizioListViewModel : BindableBase
     {
         /// <summary>
-        /// Campo che rappresenta il ViewModel della schermata di benvenuto.
-        /// </summary>
-        private BenvenutoViewModel benvenutoViewModel;
-        /// <summary>
         /// Comando che porta alla schermata di benvenuto.
         /// </summary>
         public IDelegateCommand BenvenutoCommand { get; set; }
@@ -28,12 +24,11 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         public EsercizioListViewModel()
         {
-            benvenutoViewModel = new BenvenutoViewModel();
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
             EsercizioDbRepository repo = new EsercizioDbRepository(new AppDbContext());
             Esercizi = new ObservableCollection<Esercizio>(repo.Get());
         }
-        private void OnBenvenuto(object obj) => Messenger.Default.Send<BindableBase>(benvenutoViewModel);
+        private void OnBenvenuto(object obj) => Messenger.Default.Send<BindableBase>(new BenvenutoViewModel());
         private bool CanBenvenuto(object arg) => true;
     }
 }

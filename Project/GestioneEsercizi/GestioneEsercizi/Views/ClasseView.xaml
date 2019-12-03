@@ -11,7 +11,7 @@
     <UserControl.DataContext>
         <viewmodel:ClasseViewModel />
     </UserControl.DataContext>
-    <Grid Margin="100">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -20,7 +20,7 @@
         <!-- Nome classe -->
         <TextBox x:Name="nomeTextBox" Grid.Row="0" Text="{Binding Path=Nome}"/>
         <!-- Placeholder -->
-        <TextBlock IsHitTestVisible="False" Text="Nome classe..." 
+        <TextBlock Grid.Row="0" IsHitTestVisible="False" Text="Nome classe..."
                    VerticalAlignment="Center" Foreground="DarkGray" Margin="5 0 0 0">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
