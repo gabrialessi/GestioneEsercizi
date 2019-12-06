@@ -47,7 +47,7 @@ namespace GestioneEsercizi.DA.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(nullable: true),
-                    ClasseId = table.Column<int>(nullable: true)
+                    ClasseId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -57,7 +57,7 @@ namespace GestioneEsercizi.DA.Migrations
                         column: x => x.ClasseId,
                         principalTable: "Classi",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,7 +68,7 @@ namespace GestioneEsercizi.DA.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Titolo = table.Column<string>(nullable: true),
                     Data = table.Column<DateTime>(nullable: false),
-                    ClasseId = table.Column<int>(nullable: true)
+                    ClasseId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -78,7 +78,7 @@ namespace GestioneEsercizi.DA.Migrations
                         column: x => x.ClasseId,
                         principalTable: "Classi",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,7 +89,7 @@ namespace GestioneEsercizi.DA.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Titolo = table.Column<string>(nullable: true),
                     Testo = table.Column<string>(nullable: true),
-                    ModuloId = table.Column<int>(nullable: true)
+                    ModuloId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -99,7 +99,7 @@ namespace GestioneEsercizi.DA.Migrations
                         column: x => x.ModuloId,
                         principalTable: "Moduli",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -109,7 +109,7 @@ namespace GestioneEsercizi.DA.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(nullable: true),
-                    ModuloId = table.Column<int>(nullable: true)
+                    ModuloId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -119,7 +119,7 @@ namespace GestioneEsercizi.DA.Migrations
                         column: x => x.ModuloId,
                         principalTable: "Moduli",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -128,8 +128,8 @@ namespace GestioneEsercizi.DA.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    EsercizioId = table.Column<int>(nullable: true),
-                    ProvaId = table.Column<int>(nullable: true)
+                    EsercizioId = table.Column<int>(nullable: false),
+                    ProvaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -139,13 +139,13 @@ namespace GestioneEsercizi.DA.Migrations
                         column: x => x.EsercizioId,
                         principalTable: "Esercizi",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_EserciziProva_Prove_ProvaId",
                         column: x => x.ProvaId,
                         principalTable: "Prove",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestioneEsercizi.DA.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191203145150_Initial")]
+    [Migration("20191206142034_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,7 +57,7 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ModuloId")
+                    b.Property<int>("ModuloId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Testo")
@@ -79,10 +79,10 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("EsercizioId")
+                    b.Property<int>("EsercizioId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ProvaId")
+                    b.Property<int>("ProvaId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -100,7 +100,7 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ClasseId")
+                    b.Property<int>("ClasseId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nome")
@@ -119,7 +119,7 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ClasseId")
+                    b.Property<int>("ClasseId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Data")
@@ -141,7 +141,7 @@ namespace GestioneEsercizi.DA.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ModuloId")
+                    b.Property<int>("ModuloId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nome")
@@ -167,39 +167,51 @@ namespace GestioneEsercizi.DA.Migrations
                 {
                     b.HasOne("GestioneEsercizi.DA.Models.Modulo", "Modulo")
                         .WithMany("Esercizi")
-                        .HasForeignKey("ModuloId");
+                        .HasForeignKey("ModuloId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.EsercizioProva", b =>
                 {
                     b.HasOne("GestioneEsercizi.DA.Models.Esercizio", "Esercizio")
                         .WithMany("EserciziProva")
-                        .HasForeignKey("EsercizioId");
+                        .HasForeignKey("EsercizioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("GestioneEsercizi.DA.Models.Prova", "Prova")
                         .WithMany("EserciziProva")
-                        .HasForeignKey("ProvaId");
+                        .HasForeignKey("ProvaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Modulo", b =>
                 {
                     b.HasOne("GestioneEsercizi.DA.Models.Classe", "Classe")
                         .WithMany("Moduli")
-                        .HasForeignKey("ClasseId");
+                        .HasForeignKey("ClasseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Prova", b =>
                 {
                     b.HasOne("GestioneEsercizi.DA.Models.Classe", "Classe")
                         .WithMany("Prove")
-                        .HasForeignKey("ClasseId");
+                        .HasForeignKey("ClasseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GestioneEsercizi.DA.Models.Tematica", b =>
                 {
                     b.HasOne("GestioneEsercizi.DA.Models.Modulo", "Modulo")
                         .WithMany("Tematiche")
-                        .HasForeignKey("ModuloId");
+                        .HasForeignKey("ModuloId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
