@@ -20,6 +20,10 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public virtual Modulo Modulo { get; set; }
         /// <summary>
+        /// Modulo relativo all'esercizio (FK).
+        /// </summary>
+        public int ModuloId { get; set; }
+        /// <summary>
         /// Esercizi della prova relativi all'esercizio.
         /// </summary>
         public virtual ICollection<EsercizioProva> EserciziProva { get; set; }
@@ -37,7 +41,7 @@ namespace GestioneEsercizi.DA.Models
         {
             Titolo = titolo;
             Testo = testo;
-            Modulo = modulo;
+            ModuloId = modulo.Id;
         }
         /// <summary>
         /// Stampa dell'oggetto.

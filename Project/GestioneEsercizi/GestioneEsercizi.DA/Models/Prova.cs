@@ -21,6 +21,10 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public virtual Classe Classe { get; set; }
         /// <summary>
+        /// Classe della prova (FK).
+        /// </summary>
+        public int ClasseId { get; set; }
+        /// <summary>
         /// Insieme degli esercizi della prova.
         /// </summary>
         public virtual ICollection<EsercizioProva> EserciziProva { get; set; }
@@ -34,12 +38,11 @@ namespace GestioneEsercizi.DA.Models
         /// <param name="titolo">Titolo della prova.</param>
         /// <param name="data">Data della prova.</param>
         /// <param name="classe">Classe della prova.</param>
-        /// <param name="esercizi">Esercizi della prova.</param>
         public Prova(string titolo, DateTime data, Classe classe)
         {
             Titolo = titolo;
             Data = data;
-            Classe = classe;
+            ClasseId = classe.Id;
         }
         /// <summary>
         /// Stampa dell'oggetto.

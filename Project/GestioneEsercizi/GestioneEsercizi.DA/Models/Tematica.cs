@@ -14,6 +14,10 @@
         /// </summary>
         public virtual Modulo Modulo { get; set; }
         /// <summary>
+        /// Modulo della tematica (FK).
+        /// </summary>
+        public int ModuloId { get; set; }
+        /// <summary>
         /// Metodo costruttore vuoto.
         /// </summary>
         public Tematica() { }
@@ -25,7 +29,7 @@
         public Tematica(string nome, Modulo modulo)
         {
             Nome = nome;
-            Modulo = modulo;
+            ModuloId = modulo.Id;
         }
         /// <summary>
         /// Stampa dell'oggetto.

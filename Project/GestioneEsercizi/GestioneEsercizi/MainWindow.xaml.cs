@@ -14,8 +14,10 @@ namespace GestioneEsercizi
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             AnnoDbRepository repo = new AnnoDbRepository(new AppDbContext());
+            // Anno corrente
             string anno = DateTime.Today.Year.ToString()
                     + "/" + (DateTime.Today.Year + 1).ToString();
+            // Inserisco l'anno se non è presente
             try
             {
                 if (repo.Get().FirstOrDefault().Annata != anno) repo.Insert(new Anno(anno));

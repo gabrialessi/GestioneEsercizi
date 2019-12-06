@@ -10,9 +10,17 @@
         /// </summary>
         public virtual Esercizio Esercizio { get; set; }
         /// <summary>
+        /// FK dell'esercizio prova.
+        /// </summary>
+        public int EsercizioId { get; set; }
+        /// <summary>
         /// Prova relativa all'esercizio della prova.
         /// </summary>
         public virtual Prova Prova { get; set; }
+        /// <summary>
+        /// FK della prova.
+        /// </summary>
+        public int ProvaId { get; set; }
         /// <summary>
         /// Metodo costruttore vuoto.
         /// </summary>
@@ -24,8 +32,8 @@
         /// <param name="prova">Prova relativa all'esercizio della prova.</param>
         public EsercizioProva(Esercizio esercizio, Prova prova)
         {
-            Esercizio = esercizio;
-            Prova = prova;
+            EsercizioId = esercizio.Id;
+            ProvaId = prova.Id;
         }
         /// <summary>
         /// Stampa dell'oggetto.

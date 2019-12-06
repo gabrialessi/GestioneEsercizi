@@ -17,6 +17,10 @@ namespace GestioneEsercizi.DA.Models
         /// </summary>
         public virtual Classe Classe { get; set; }
         /// <summary>
+        /// Classe del modulo (FK).
+        /// </summary>
+        public int ClasseId { get; set; }
+        /// <summary>
         /// Insieme delle tematiche del modulo.
         /// </summary>
         public virtual ICollection<Tematica> Tematiche { get; set; }
@@ -46,7 +50,7 @@ namespace GestioneEsercizi.DA.Models
         public Modulo(string nome, Classe classe)
         {
             Nome = nome;
-            Classe = classe;
+            ClasseId = classe.Id;
         }
         /// <summary>
         /// Stampa dell'oggetto.
