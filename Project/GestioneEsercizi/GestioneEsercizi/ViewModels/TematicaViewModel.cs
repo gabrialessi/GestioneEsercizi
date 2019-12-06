@@ -25,7 +25,7 @@ namespace GestioneEsercizi.ViewModels
         /// </summary>
         public string Nome { get; set; }
         /// <summary>
-        /// Anno della tematica da aggiungere.
+        /// Modulo della tematica da aggiungere.
         /// </summary>
         public Modulo Modulo { get; set; }
         /// <summary>

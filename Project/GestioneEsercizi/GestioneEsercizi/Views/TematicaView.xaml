@@ -11,16 +11,20 @@
     <UserControl.DataContext>
         <viewmodel:TematicaViewModel />
     </UserControl.DataContext>
-    <Grid Margin="100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!-- Nome tematica -->
-        <TextBox x:Name="nomeTextBox" Grid.Row="0" Text="{Binding Path=Nome}"/>
+        <TextBox x:Name="nomeTextBox" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding Path=Nome}"/>
         <!-- Placeholder -->
-        <TextBlock IsHitTestVisible="False" Text="Nome tematica..." 
+        <TextBlock Grid.ColumnSpan="2" Grid.Row="0" IsHitTestVisible="False" Text="Nome tematica..."
                    VerticalAlignment="Center" Foreground="DarkGray" Margin="5 0 0 0">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
@@ -33,10 +37,11 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <!-- Modulo della tematica -->
-        <ComboBox Grid.Row="1" SelectedIndex="0"
+        <!-- modulo della tematica -->
+        <Label Grid.Column="0" Grid.Row="1" Content="Modulo:" />
+        <ComboBox Grid.Column="1" Grid.Row="1" SelectedIndex="0"
                   ItemsSource="{Binding Path=Moduli}" SelectedItem="{Binding Path=Modulo}" />
-        <DockPanel Grid.Row="2" Margin="10"
+        <DockPanel Grid.Column="1" Grid.Row="2" Margin="10"
                    VerticalAlignment="Bottom" HorizontalAlignment="Right">
             <!-- Pulsante annulla -->
             <Button Content="Annulla" Command="{Binding Path=BenvenutoCommand}" />

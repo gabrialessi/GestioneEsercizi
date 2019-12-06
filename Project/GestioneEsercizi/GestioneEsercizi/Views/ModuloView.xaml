@@ -11,16 +11,20 @@
     <UserControl.DataContext>
         <viewmodel:ModuloViewModel />
     </UserControl.DataContext>
-    <Grid Margin="100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!-- Nome modulo -->
-        <TextBox x:Name="nomeTextBox" Grid.Row="0" Text="{Binding Path=Nome}"/>
+        <TextBox x:Name="nomeTextBox" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding Path=Nome}"/>
         <!-- Placeholder -->
-        <TextBlock IsHitTestVisible="False" Text="Nome modulo..." 
+        <TextBlock Grid.ColumnSpan="2" Grid.Row="0" IsHitTestVisible="False" Text="Nome modulo..."
                    VerticalAlignment="Center" Foreground="DarkGray" Margin="5 0 0 0">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
@@ -33,10 +37,11 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <!-- Anno del modulo -->
-        <ComboBox Grid.Row="1" SelectedIndex="0"
-                  ItemsSource="{Binding Path=Anni}" SelectedItem="{Binding Path=Anno}" />
-        <DockPanel Grid.Row="2" Margin="10"
+        <!-- Classe del modulo -->
+        <Label Grid.Column="0" Grid.Row="1" Content="Classe:" />
+        <ComboBox Grid.Column="1" Grid.Row="1" SelectedIndex="0"
+                  ItemsSource="{Binding Path=Classi}" SelectedItem="{Binding Path=Classe}" />
+        <DockPanel Grid.Column="1" Grid.Row="2" Margin="10"
                    VerticalAlignment="Bottom" HorizontalAlignment="Right">
             <!-- Pulsante annulla -->
             <Button Content="Annulla" Command="{Binding Path=BenvenutoCommand}" />
