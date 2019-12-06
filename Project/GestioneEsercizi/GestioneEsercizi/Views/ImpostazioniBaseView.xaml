@@ -28,7 +28,7 @@
         <Label Grid.Column="1" Grid.Row="0" Content="Moduli" HorizontalAlignment="Center" />
         <Label Grid.Column="2" Grid.Row="0" Content="Tematiche" HorizontalAlignment="Center" />
         <!-- Classi -->
-        <DataGrid x:Name="classiDataGrid" Grid.Column="0" Grid.Row="1" IsReadOnly="True"
+        <DataGrid Grid.Column="0" Grid.Row="1" IsReadOnly="True"
                   ItemsSource="{Binding Path=Classi}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Classe" Binding="{Binding Path=Nome}" />
@@ -36,17 +36,17 @@
             </DataGrid.Columns>
         </DataGrid>
         <!-- Moduli -->
-        <DataGrid x:Name="moduliDataGrid" Grid.Column="1" Grid.Row="1" IsReadOnly="True"
+        <DataGrid Grid.Column="1" Grid.Row="1" IsReadOnly="True"
                   ItemsSource="{Binding Path=Moduli}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Path=Nome}" />
-                <DataGridTextColumn Header="Anno" Binding="{Binding Path=Anno}" />
+                <DataGridTextColumn Header="Classe" Binding="{Binding Path=Classe}" />
                 <DataGridTextColumn Header="Tematiche" Binding="{Binding Path=TematicheList}" />
                 <DataGridTextColumn Header="Esercizi" Binding="{Binding Path=EserciziList}" />
             </DataGrid.Columns>
         </DataGrid>
         <!-- Tematiche -->
-        <DataGrid x:Name="tematicheDataGrid" Grid.Column="2" Grid.Row="1" IsReadOnly="True"
+        <DataGrid Grid.Column="2" Grid.Row="1" IsReadOnly="True"
                   ItemsSource="{Binding Path=Tematiche}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Path=Nome}" />
