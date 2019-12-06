@@ -7,7 +7,7 @@
         xmlns:view="clr-namespace:GestioneEsercizi.Views"
         mc:Ignorable="d"
         Title="Gestione Esercizi" 
-        Height="500" Width="800" MinHeight="200" MinWidth="400">
+        Height="500" Width="800" MinHeight="200" MinWidth="400" Loaded="Window_Loaded">
     <Grid>
         <view:MainView/>
     </Grid>
