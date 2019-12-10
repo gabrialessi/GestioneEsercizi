@@ -61,8 +61,7 @@
             </TextBlock.Style>
         </TextBlock>
         <!-- Immagine -->
-        <Border Grid.Column="1" Grid.Row="1"
-                BorderBrush="Black" BorderThickness="0.5" Margin="50">
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="0.5" Margin="50">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
