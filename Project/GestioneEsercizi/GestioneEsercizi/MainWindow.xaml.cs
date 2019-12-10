@@ -15,8 +15,7 @@ namespace GestioneEsercizi
         {
             AnnoDbRepository repo = new AnnoDbRepository(new AppDbContext());
             // Anno corrente
-            string anno = DateTime.Today.Year.ToString()
-                    + "/" + (DateTime.Today.Year + 1).ToString();
+            string anno = DateTime.Today.Year.ToString() + "/" + (DateTime.Today.Year + 1).ToString();
             // Inserisco l'anno se non è presente
             try
             {
