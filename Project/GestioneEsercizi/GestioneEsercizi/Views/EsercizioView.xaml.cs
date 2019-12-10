@@ -1,6 +1,7 @@
-﻿using System.IO;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace GestioneEsercizi.Views
 {
@@ -10,14 +11,15 @@ namespace GestioneEsercizi.Views
         /// <summary>
         /// Ricerca del file tramite explorer sul click del pulsante.
         /// </summary>
-        private void sfogliaButtonClick(object sender, RoutedEventArgs e)
+        private void Sfoglia(object sender, RoutedEventArgs e)
         {
             // Creazione File Explorer
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
             // Impostazione estensioni files
             dlg.Filter = "Image Files | *.jpg; *.jpeg; *.png; *.gif";
-            // Mostrare il file selezionato nella label
-            if (dlg.ShowDialog() == true) SetLabelContent(dlg.FileName);
+            // Mostrare il file selezionato
+            if (dlg.ShowDialog() == true) SetImage(dlg.FileName);
+
         }
         /// <summary>
         /// Drag&Drop dell'immagine.
@@ -27,13 +29,14 @@ namespace GestioneEsercizi.Views
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-                SetLabelContent(files[0]);
+                SetImage(files[0]);
             }
         }
         /// <summary>
-        /// Impostazione del nome dell'immagine selezionata sul Label.
+        /// Impostazione della sorgente dell'immagine selezionata.
         /// </summary>
         /// <param name="filename">Nome del file.</param>
-        private void SetLabelContent(string filename) => immagineLabel.Content = Path.GetFileName(filename);
+        private void SetImage(string filename)
+            => immagine.Source = new BitmapImage(new Uri(filename, UriKind.Absolute));
     }
 }

@@ -62,12 +62,20 @@
         </TextBlock>
         <!-- Immagine -->
         <Border Grid.Column="1" Grid.Row="1"
-                BorderBrush="Black" BorderThickness="0.5" Margin="50"
-                AllowDrop="True" Drop="ImageDrop">
+                BorderBrush="Black" BorderThickness="0.5" Margin="50">
             <Grid>
-                <Label x:Name="immagineLabel" Content="Trascina immagine" />
-                <Button x:Name="sfogliaButton" VerticalAlignment="Center" 
-                HorizontalAlignment="Center" Content="Sfoglia..." Click="sfogliaButtonClick" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="immagine" Grid.ColumnSpan="2" Grid.Row="0" Source="{Binding Path=Immagine}" />
+                <Button Grid.Column="0" Grid.Row="1" Content="Sfoglia..." Click="Sfoglia" />
+                <Label Grid.Column="1" Grid.Row="1" Content="Trascina l'immagine qui" Background="LightGray"
+                       HorizontalAlignment="Center" AllowDrop="True" Drop="ImageDrop"/>
             </Grid>
         </Border>
         <DockPanel Grid.Column="1" Grid.Row="2" Margin="10"
@@ -75,7 +83,7 @@
             <!-- Pulsante annulla -->
             <Button Content="Annulla" Command="{Binding Path=BenvenutoCommand}" />
             <!-- Pulsante salva -->
-            <Button Content="Salva" Margin="10 0 0 0" Command="{Binding Path=SalvaCommand}" />
+            <Button Content="Salva" Margin="10 0 0 0" Command="{Binding Path=SalvaCommand}"/>
         </DockPanel>
     </Grid>
 </UserControl>
