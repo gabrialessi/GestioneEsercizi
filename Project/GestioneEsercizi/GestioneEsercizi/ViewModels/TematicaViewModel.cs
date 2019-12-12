@@ -42,7 +42,7 @@ namespace GestioneEsercizi.ViewModels
         private bool CanBenvenuto(object arg) => true;
         private void OnSalva(object obj)
         {
-            if (Nome != null)
+            if (Nome != null && Modulo != null)
             {
                 TematicaDbRepository repo = new TematicaDbRepository(new AppDbContext());
                 // Aggiungo la tematica
