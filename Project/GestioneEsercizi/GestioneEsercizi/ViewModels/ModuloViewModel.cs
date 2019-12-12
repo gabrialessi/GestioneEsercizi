@@ -42,10 +42,13 @@ namespace GestioneEsercizi.ViewModels
         private bool CanBenvenuto(object arg) => true;
         private void OnSalva(object obj)
         {
-            ModuloDbRepository repo = new ModuloDbRepository(new AppDbContext());
-            // Aggiungo il modulo
-            repo.Insert(new Modulo(Nome, Classe));
-            OnBenvenuto(obj);
+            if (Nome != null)
+            {
+                ModuloDbRepository repo = new ModuloDbRepository(new AppDbContext());
+                // Aggiungo il modulo
+                repo.Insert(new Modulo(Nome, Classe));
+                OnBenvenuto(obj);
+            }
         }
         private bool CanSalva(object arg) => true;
     }

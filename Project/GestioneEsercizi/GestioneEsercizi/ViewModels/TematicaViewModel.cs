@@ -42,10 +42,13 @@ namespace GestioneEsercizi.ViewModels
         private bool CanBenvenuto(object arg) => true;
         private void OnSalva(object obj)
         {
-            TematicaDbRepository repo = new TematicaDbRepository(new AppDbContext());
-            // Aggiungo la tematica
-            repo.Insert(new Tematica(Nome, Modulo));
-            OnBenvenuto(obj);
+            if (Nome != null)
+            {
+                TematicaDbRepository repo = new TematicaDbRepository(new AppDbContext());
+                // Aggiungo la tematica
+                repo.Insert(new Tematica(Nome, Modulo));
+                OnBenvenuto(obj);
+            }
         }
         private bool CanSalva(object arg) => true;
     }
