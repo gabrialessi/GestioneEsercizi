@@ -54,17 +54,20 @@ namespace GestioneEsercizi.ViewModels
         private bool CanBenvenuto(object arg) => true;
         private void OnSalva(object obj)
         {
-            ProvaDbRepository repoProva = new ProvaDbRepository(new AppDbContext());
-            EsercizioProvaDbRepository repo = new EsercizioProvaDbRepository(new AppDbContext());
-            // Aggiungo la prova
-            Prova prova = new Prova(Titolo, Data, Classe);
-            repoProva.Insert(prova);
-            // Aggiungo gli esercizi della prova
-            foreach (Esercizio esercizio in new List<Esercizio>(Esercizi))
+            if (Titolo != null && Data != null && Classe != null)
             {
-                repo.Insert(new EsercizioProva(esercizio, prova));
+                ProvaDbRepository repoProva = new ProvaDbRepository(new AppDbContext());
+                EsercizioProvaDbRepository repoEseProva = new EsercizioProvaDbRepository(new AppDbContext());
+                // Aggiungo la prova
+                Prova prova = new Prova(Titolo, Data, Classe);
+                repoProva.Insert(prova);
+                // Aggiungo gli esercizi della prova
+                foreach (Esercizio esercizio in new List<Esercizio>(Esercizi))
+                {
+                    repoEseProva.Insert(new EsercizioProva(esercizio, prova));
+                }
+                OnBenvenuto(obj);
             }
-            OnBenvenuto(obj);
         }
         private bool CanSalva(object arg) => true;
     }

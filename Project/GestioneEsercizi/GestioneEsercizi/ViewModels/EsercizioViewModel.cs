@@ -3,7 +3,6 @@ using GestioneEsercizi.DA.Models;
 using GestioneEsercizi.DA.Services;
 using MVVM;
 using System.Collections.ObjectModel;
-using System.Windows.Media.Imaging;
 
 namespace GestioneEsercizi.ViewModels
 {
@@ -29,7 +28,10 @@ namespace GestioneEsercizi.ViewModels
         /// Testo dell'esercizio da aggiungere.
         /// </summary>
         public string Testo { get; set; }
-        public BitmapImage Immagine { get; set; }
+        /// <summary>
+        /// Immagine da inserire nel testo dell'esercizio.
+        /// </summary>
+        public string Immagine { get; set; }
         /// <summary>
         /// Modulo dell'esercizio da aggiungere.
         /// </summary>
@@ -48,10 +50,13 @@ namespace GestioneEsercizi.ViewModels
         private bool CanBenvenuto(object arg) => true;
         private void OnSalva(object obj)
         {
-            EsercizioDbRepository repoEsercizio = new EsercizioDbRepository(new AppDbContext());
-            // Aggiungo l'esercizio
-            repoEsercizio.Insert(new Esercizio(Titolo, Testo, Modulo));
-            OnBenvenuto(obj);
+            if (Titolo != null && Testo != null && Modulo != null)
+            {
+                EsercizioDbRepository repo = new EsercizioDbRepository(new AppDbContext());
+                // Aggiungo l'esercizio
+                repo.Insert(new Esercizio(Titolo, Testo + Immagine, Modulo));
+                OnBenvenuto(obj);
+            }
         }
         private bool CanSalva(object arg) => true;
     }
