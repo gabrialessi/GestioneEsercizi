@@ -3,6 +3,7 @@ using GestioneEsercizi.DA.Models;
 using GestioneEsercizi.DA.Services;
 using MVVM;
 using System.Collections.ObjectModel;
+using System.Windows.Media.Imaging;
 
 namespace GestioneEsercizi.ViewModels
 {
@@ -31,7 +32,7 @@ namespace GestioneEsercizi.ViewModels
         /// <summary>
         /// Immagine da inserire nel testo dell'esercizio.
         /// </summary>
-        public string Immagine { get; set; }
+        public BitmapImage Immagine { get; set; }
         /// <summary>
         /// Modulo dell'esercizio da aggiungere.
         /// </summary>
