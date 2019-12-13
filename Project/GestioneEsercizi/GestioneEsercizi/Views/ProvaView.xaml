@@ -40,11 +40,11 @@
             </TextBlock.Style>
         </TextBlock>
         <!-- Data della prova -->
-        <DatePicker x:Name="dataDatePicker"  Grid.Column="0" Grid.Row="1" 
-                    VerticalAlignment="Center" SelectedDate="{Binding Path=Data}" />
-        <!-- Anno della prova -->
+        <DatePicker Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" 
+                    SelectedDate="{Binding Path=Data}" />
+        <!-- Classe della prova -->
         <ComboBox Grid.Column="0" Grid.Row="2" SelectedIndex="0" VerticalAlignment="Center"
-                  ItemsSource="{Binding Path=Anni}" SelectedItem="{Binding Path=Anno}" />
+                  ItemsSource="{Binding Path=Classi}" SelectedItem="{Binding Path=Classe}" />
         <!-- Griglia con i dati degli esercizi -->
         <DataGrid x:Name="eserciziDataGrid" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Margin="5"
                   IsReadOnly="True" ItemsSource="{Binding Path=Esercizi}" AutoGenerateColumns="False">
