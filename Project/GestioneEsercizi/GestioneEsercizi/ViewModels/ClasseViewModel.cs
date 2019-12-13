@@ -42,7 +42,7 @@ namespace GestioneEsercizi.ViewModels
         private bool CanBenvenuto(object arg) => true;
         private void OnSalva(object obj)
         {
-            if (Nome != null && Anno != null)
+            if (!string.IsNullOrWhiteSpace(Nome) && Anno != null)
             {
                 ClasseDbRepository repo = new ClasseDbRepository(new AppDbContext());
                 // Aggiungo la classe
