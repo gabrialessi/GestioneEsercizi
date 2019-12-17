@@ -17,7 +17,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <!-- Griglia con i dati delle prove -->
-        <DataGrid x:Name="proveDataGrid" Grid.Row="0" IsReadOnly="True"
+        <DataGrid Grid.Row="0" IsReadOnly="True"
                   ItemsSource="{Binding Path=Prove}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titolo" Binding="{Binding Path=Titolo}" />
