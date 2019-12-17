@@ -22,7 +22,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <!-- Titolo esercizio -->
-        <TextBox x:Name="titoloTextBox" Grid.Column="0" Grid.Row="0"
+        <TextBox x:Name="titolo" Grid.Column="0" Grid.Row="0"
                  Text="{Binding Path=Titolo}"/>
         <!-- Placeholder -->
         <TextBlock Grid.Column="0" Grid.Row="0"
@@ -32,7 +32,7 @@
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=titoloTextBox}" Value="">
+                        <DataTrigger Binding="{Binding Text, ElementName=titolo}" Value="">
                             <Setter Property="Visibility" Value="Visible"/>
                         </DataTrigger>
                     </Style.Triggers>
@@ -43,7 +43,7 @@
         <ComboBox Grid.Column="1" Grid.Row="0" SelectedIndex="0"
                   ItemsSource="{Binding Path=Moduli}" SelectedItem="{Binding Path=Modulo}"/>
         <!-- Testo esercizio -->
-        <TextBox x:Name="testoTextBox" Grid.Column="0" Grid.Row="1" Margin="10"
+        <TextBox x:Name="testo" Grid.Column="0" Grid.Row="1" Margin="10"
                  Text="{Binding Path=Testo}"/>
         <!-- Placeholder -->
         <TextBlock Grid.Column="0" Grid.Row="1"
@@ -53,7 +53,7 @@
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=testoTextBox}" Value="">
+                        <DataTrigger Binding="{Binding Text, ElementName=testo}" Value="">
                             <Setter Property="Visibility" Value="Visible"/>
                         </DataTrigger>
                     </Style.Triggers>
