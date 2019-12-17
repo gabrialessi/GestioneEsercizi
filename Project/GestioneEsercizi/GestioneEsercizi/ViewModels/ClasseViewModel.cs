@@ -6,6 +6,9 @@ using System.Collections.ObjectModel;
 
 namespace GestioneEsercizi.ViewModels
 {
+    /// <summary>
+    /// ViewModel per l'inserimento di una classe.
+    /// </summary>
     public class ClasseViewModel : BindableBase
     {
         /// <summary>

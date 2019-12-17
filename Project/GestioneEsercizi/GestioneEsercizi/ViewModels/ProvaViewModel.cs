@@ -8,6 +8,9 @@ using System.Collections.ObjectModel;
 
 namespace GestioneEsercizi.ViewModels
 {
+    /// <summary>
+    /// ViewModel per la creazione di una prova.
+    /// </summary>
     public class ProvaViewModel : BindableBase
     {
         /// <summary>
@@ -54,18 +57,19 @@ namespace GestioneEsercizi.ViewModels
         private bool CanBenvenuto(object arg) => true;
         private void OnSalva(object obj)
         {
-            if (Titolo != null && Data != null && Classe != null)
+            if (!string.IsNullOrWhiteSpace(Titolo)
+                && !string.IsNullOrWhiteSpace(Data.ToString())
+                && Classe != null)
             {
                 ProvaDbRepository repoProva = new ProvaDbRepository(new AppDbContext());
                 EsercizioProvaDbRepository repoEseProva = new EsercizioProvaDbRepository(new AppDbContext());
+                List<Esercizio> esercizi = new List<Esercizio>(Esercizi);
                 // Aggiungo la prova
                 Prova prova = new Prova(Titolo, Data, Classe);
                 repoProva.Insert(prova);
                 // Aggiungo gli esercizi della prova
-                foreach (Esercizio esercizio in new List<Esercizio>(Esercizi))
-                {
+                foreach (Esercizio esercizio in esercizi)
                     repoEseProva.Insert(new EsercizioProva(esercizio, prova));
-                }
                 OnBenvenuto(obj);
             }
         }

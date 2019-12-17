@@ -6,6 +6,9 @@ using System.Collections.ObjectModel;
 
 namespace GestioneEsercizi.ViewModels
 {
+    /// <summary>
+    /// ViewModel per l'inserimento di una tematica.
+    /// </summary>
     public class TematicaViewModel : BindableBase
     {
         /// <summary>

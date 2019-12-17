@@ -7,6 +7,9 @@ using System.Windows.Media.Imaging;
 
 namespace GestioneEsercizi.ViewModels
 {
+    /// <summary>
+    /// ViewModel per l'inserimento di una esercizio.
+    /// </summary>
     public class EsercizioViewModel : BindableBase
     {
         /// <summary>
@@ -44,14 +47,16 @@ namespace GestioneEsercizi.ViewModels
         {
             BenvenutoCommand = new DelegateCommand(OnBenvenuto, CanBenvenuto);
             SalvaCommand = new DelegateCommand(OnSalva, CanSalva);
-            ModuloDbRepository repoModulo = new ModuloDbRepository(new AppDbContext());
-            Moduli = new ObservableCollection<Modulo>(repoModulo.Get());
+            ModuloDbRepository repo = new ModuloDbRepository(new AppDbContext());
+            Moduli = new ObservableCollection<Modulo>(repo.Get());
         }
         private void OnBenvenuto(object obj) => Messenger.Default.Send<BindableBase>(new BenvenutoViewModel());
         private bool CanBenvenuto(object arg) => true;
         private void OnSalva(object obj)
         {
-            if (Titolo != null && Testo != null && Modulo != null)
+            if (!string.IsNullOrWhiteSpace(Titolo)
+                && !string.IsNullOrWhiteSpace(Testo)
+                && Modulo != null)
             {
                 EsercizioDbRepository repo = new EsercizioDbRepository(new AppDbContext());
                 // Aggiungo l'esercizio
