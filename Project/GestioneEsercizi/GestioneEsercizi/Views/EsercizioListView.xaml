@@ -17,7 +17,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <!-- Griglia con i dati degli esercizi -->
-        <DataGrid x:Name="eserciziDataGrid" Grid.Row="0" IsReadOnly="True"
+        <DataGrid Grid.Row="0" IsReadOnly="True"
                   ItemsSource="{Binding Path=Esercizi}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titolo" Binding="{Binding Path=Titolo}" />
