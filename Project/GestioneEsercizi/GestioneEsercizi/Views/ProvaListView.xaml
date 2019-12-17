@@ -22,7 +22,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titolo" Binding="{Binding Path=Titolo}" />
                 <DataGridTextColumn Header="Data" Binding="{Binding Path=Data}" />
-                <DataGridTextColumn Header="Anno" Binding="{Binding Path=Anno}" />
+                <DataGridTextColumn Header="Classe" Binding="{Binding Path=Classe}" />
             </DataGrid.Columns>
         </DataGrid>
         <!-- Pulsante indietro -->
