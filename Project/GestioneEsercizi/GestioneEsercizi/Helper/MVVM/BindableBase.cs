@@ -15,7 +15,6 @@ namespace MVVM
         /// Raised when a property on this object has a new value.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
-
         /// <summary>
         /// Raises this object's PropertyChanged event.
         /// </summary>
@@ -24,19 +23,17 @@ namespace MVVM
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
-            {
                 handler(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
-
-        protected virtual void SetProperty<T>(ref T member, T value, [CallerMemberName] string propertyName = null)
+        protected virtual void SetProperty<T>(ref T member,
+                                              T value,
+                                              [CallerMemberName] string propertyName = null)
         {
             if (object.Equals(member, value))
                 return;
             member = value;
             OnPropertyChanged(propertyName);
         }
-
         /// <summary>
         /// Raises this object's PropertyChanged event.
         /// </summary>
