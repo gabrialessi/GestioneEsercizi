@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MVVM.BindableBase">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\BindableBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MVVM.ViewBindableBase">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAgAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\ViewBindableBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.AboutViewModel">
+    <Position X="22.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAIAAABAAAA=</HashCode>
+      <FileName>ViewModels\AboutViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.BenvenutoViewModel">
+    <Position X="27.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAIAAAAEAAAAAAgAAAAIEAAAAAAABAACAg=</HashCode>
+      <FileName>ViewModels\BenvenutoViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.ClasseViewModel">
+    <Position X="2.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAiAAAAAAAAAIAAAAAAAAAAAAAAAIAUAFAEAA=</HashCode>
+      <FileName>ViewModels\ClasseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.EsercizioListViewModel">
+    <Position X="7" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAIAAABAAAA=</HashCode>
+      <FileName>ViewModels\EsercizioListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.EsercizioViewModel">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAiAAAAAAAAAIAAAAAAQAAAAAAAAIACARIEAA=</HashCode>
+      <FileName>ViewModels\EsercizioViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.GuidaViewModel">
+    <Position X="18.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAIAAABAAAA=</HashCode>
+      <FileName>ViewModels\GuidaViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.ImpostazioniBaseViewModel">
+    <Position X="20.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAgQgAAAAAAAAAIAAAAAAIAiAAAAAQIAKABAAIA=</HashCode>
+      <FileName>ViewModels\ImpostazioniBaseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.MainViewModel">
+    <Position X="25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAACQAEOIASABAAAAAQAEgAABAAAAAAIKAgQA=</HashCode>
+      <FileName>ViewModels\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.ModuloViewModel">
+    <Position X="29.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAiAAAAAAAAAIAAAAAAAAAAAAAAAIAAAFAEAA=</HashCode>
+      <FileName>ViewModels\ModuloViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.ProvaListViewModel">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAIAAABAAAA=</HashCode>
+      <FileName>ViewModels\ProvaListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.ProvaViewModel">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAiAAAAAAAAAIAAAAAAAAAABAAAAIAAARAEAA=</HashCode>
+      <FileName>ViewModels\ProvaViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestioneEsercizi.ViewModels.TematicaViewModel">
+    <Position X="16" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAiAAAAAAAAAIAAAAAAAAAAAAAAAIACAFAEAA=</HashCode>
+      <FileName>ViewModels\TematicaViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
